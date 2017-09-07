@@ -4,4 +4,5 @@ Traitify.configure do |traitify|
   traitify.secret_key = ENV["SECRET_KEY"]
   traitify.public_key =  ENV["PUBLIC_KEY"] # Optional
   traitify.locale_key = "en-us"  # Optional
+  traitify.deck_id = "core"
 end

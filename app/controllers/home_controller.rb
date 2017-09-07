@@ -5,9 +5,8 @@ class HomeController < ApplicationController
       version: "v1",
       secret_key: ENV["SECRET_KEY"],
       public_key: ENV["PUBLIC_KEY"],
-      deck_id: "core-deck"
+      deck_id: "core"
     )
-    traitify.create_assessment
-    @decks = traitify.decks
+    @assessment = traitify.create_assessment(deck_id: 'core')
   end
 end
