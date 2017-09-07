@@ -12,18 +12,18 @@ RSpec.describe User, type: :model do
     end
 
     it "is not valid without a name" do
-      product = User.new(name: nil)
-      expect(product).to_not be_valid
+      user = User.new(name: nil)
+      expect(user).to_not be_valid
     end
 
     it "is not valid without a email" do
-      product = User.new(email: nil)
-      expect(product).to_not be_valid
+      user = User.new(email: nil)
+      expect(user).to_not be_valid
     end
 
     it "is not valid without a password" do
-      product = User.new(password: nil)
-      expect(product).to_not be_valid
+      user = User.new(password: nil)
+      expect(user).to_not be_valid
     end
   end
 end

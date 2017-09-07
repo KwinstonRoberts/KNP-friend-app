@@ -1,4 +1,5 @@
 class Activity < ApplicationRecord
-  belongs_to :PersonalityType
+  belongs_to :user
+
   validates :name, presence: true
 end

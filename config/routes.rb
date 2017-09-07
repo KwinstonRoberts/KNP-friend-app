@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
   root to: 'home#index'
 
-    resources :not_me
-    
+  resources :home, only:[:index]
+  resources :test, only:[:index]
+  resources :login, only:[:index,:create]
+  resources :register, only:[:index,:create]
+  resources :profile, except:[:destroy,:new,:edit]
+  resources :matches, only:[:index,:show]
+
 end
