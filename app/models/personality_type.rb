@@ -1,4 +1,6 @@
 class PersonalityType < ApplicationRecord
   belongs_to :user
-  has_many :personality_type
+  has_many :activities
+
+  validates :name, presence: true
 end
