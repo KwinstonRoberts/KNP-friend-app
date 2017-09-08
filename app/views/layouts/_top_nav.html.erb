@@ -1,4 +1,8 @@
 <nav>
   <%= image_tag("logoColor.png") %>
+  <% if session[:user_id] %>
+  <%= link_to 'Logout', login_path(session[:user_id]), method: :delete %>
+  <%else%>
   <%= link_to 'Login', login_index_path %>
+  <%end%>
 </nav>

@@ -16,4 +16,8 @@ class LoginController < ApplicationController
       redirect_to :back, notice: 'couldnt log in'
     end
   end
+  def destroy
+    session[:user_id] = nil
+    redirect_to :root
+  end
 end
