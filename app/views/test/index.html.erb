@@ -6,6 +6,17 @@
   Traitify.setVersion("v1");
   traitify = Traitify.ui.load('<%= @assessment.id %>', ".assessment", {slideDeck: {showResults: false}})
   traitify.slideDeck.onFinished(function(){
-    alert("Finished")
-      })
+    'session[:user_id]'
+    '<%= session[:user_id]%>'
+    '<%= User.find(session[:user_id]).email %>'
+    '<%= @assessment.id%>'
+    var path = "<%= user_personality_path%>"
+  $.ajax({
+    method: "POST",
+    url: path,
+    data: {id: '<%= @assessment.id%>'},
+    success: function() {
+    alert("Done!!");
+    }
+  })})
 </script>

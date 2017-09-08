@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :register, only:[:index,:create]
   resources :profile, except:[:destroy,:new,:edit]
 
+post '/user/personality' => 'users#personality'
 end
