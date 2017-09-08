@@ -1,23 +1,23 @@
-<h2>Login</h2>
-
-<%= form_for :register, url: register_index_path do |f| %>
-
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
-  </div>
-
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password, "Password" %><br />
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
-  </div>
-
-  <%= f.submit "Register", method: :post %>
-
-<% end %>
+<div class='container'>
+  <h2 class='center'>Register</h2>
+  <div class="row">
+  <%= form_for :register, url: register_index_path do |f| %>
+    <div class="row">
+      <div class="browser-default col m4">
+        <%= f.label :name %><br />
+        <%= f.text_field :name,class: 'browser-default blue-grey lighten-5', autofocus: true %>
+      </div>
+      <div class="browser-default col m4">
+        <%= f.label :email %><br />
+        <%= f.email_field :email,class: 'browser-default blue-grey lighten-5', autofocus: true %>
+      </div>
+      <div class="browser-default col m4">
+        <%= f.label :password, "Password" %><br />
+        <%= f.password_field :password,class: 'browser-default blue-grey lighten-5', autofocus: true, autocomplete: "off" %>
+      </div>
+    </div>
+    <div class="row">
+      <%= f.submit "Register", method: :post, class: 'btn' %>
+    </div>
+  <% end %>
+</div>
