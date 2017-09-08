@@ -5,8 +5,13 @@ class ProfileController < ApplicationController
 
   # end
   def index
-    # Look up user by session ID, get their id => personality (asessment ID), and call it
-    # @user_find_by_id
+    @user = User.find(session[:user_id])
+    traitify = Traitify.new({
+      host: "https://api-sandbox.traitify.com",
+      version: "v1",
+      secret_key: ENV["SECRET_KEY"],
+      public_key: ENV["PUBLIC_KEY"],
+      })
+    @assessments = traitify.find_results(@user.personality)
   end
-
 end

@@ -4,7 +4,7 @@ class UsersController < ApplicationController
        user = User.find(session[:user_id])
        puts user
        user.update(personality:params[:id])
-       redirect_to :root
+       redirect_to profile_index_path
   end
 
 end

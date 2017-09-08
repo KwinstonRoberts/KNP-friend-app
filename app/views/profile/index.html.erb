@@ -1,1 +1,6 @@
-<div> Awesome! <div>
+
+ <% assessment = @assessments.personality_types.first %>
+ <img src='<%= assessment.personality_type.badge.image_large %>'>
+ <h2><%= assessment.personality_type.name %></h2>
+ <h4><%= assessment.score %>%</h4>
+ <h4><%= assessment.personality_type.description %></h4>
