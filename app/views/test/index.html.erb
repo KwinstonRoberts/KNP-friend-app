@@ -13,9 +13,6 @@
   $.ajax({
     method: "POST",
     url: path,
-    data: {id: '<%= @assessment.id%>'},
-    success: function() {
-    alert("Done!!");
-    }
+    data: {id: '<%= @assessment.id%>'}
   })})
 </script>
