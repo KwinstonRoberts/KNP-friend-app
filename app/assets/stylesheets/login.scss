@@ -1,3 +1,85 @@
 // Place all the styles related to the login controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.loginWrapper{
+  background-color: white;
+  border-top: 8px solid #0ee0bd;
+  border-bottom: 8px solid #0ee0bd;
+}
+.loginContainer{
+  border: 5px solid #0ee0bd;
+  background-color: white;
+  border-radius: 16px;
+
+  height: 400px;
+  width: 700px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 70px auto;
+  padding-bottom: 50px;
+
+
+  header{
+    border-bottom: 5px solid #0ee0bd;
+    display: flex;
+    justify-content: space-between;
+
+    .circle:before {
+      content: ' \25CF';
+      font-size: 30px;
+      color: #0ee0bd;
+      padding-left:10px;
+
+    }
+
+    img{
+      padding-right: 10px;
+    }
+
+  }
+
+  .loginForm{
+    color: #4e4e4e;
+    background-color: white;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      border-radius: 16px;
+      justify-content: flex-start;
+      padding: 0;
+      height: 240px;
+      width: 60%;
+      margin-top: 40px;
+      padding: 10px 30px;
+      align-self: center;
+      box-shadow: 15px 11px 51px 0px rgba(184,184,184,1);
+
+        form input[type=email], form input[type=password]{
+          width: 200px;
+
+          height: 20px;
+          margin: 10px;
+
+        }
+
+        form input[type=submit]{
+          width: 100px;
+          padding: 5px;
+          border-radius: 5px;
+          background-color: #0ee0bd;
+          color: white;
+        }
+        form input[type=submit]:hover{
+          opacity: .7;
+          box-shadow: 4px 4px 7px #b8b8b8;
+          transition: .6s;
+        }
+        h2{
+          color: #0ee0bd;
+        }
+  }
+}

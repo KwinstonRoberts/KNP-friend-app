@@ -26,12 +26,11 @@ nav {
     padding: 10px 30px 0 0;
     text-decoration: none;
     color: #0ee0bd;
-    font-size: 1.2em;
+    font-size: 1.1em;
   }
 
   a:hover{
-    font-weight: bold;
-    color: #050607;
+    letter-spacing: .1em;
   }
 }
 
@@ -42,7 +41,7 @@ nav {
   margin: 0 auto;
   justify-content: center;
 
-  .box, .loginForm{
+  .box{
     background-color: #fff;
     width: 280px;
     height: 300px;
@@ -153,25 +152,6 @@ footer{
   transition: all 0.8s ease;
 }
 
-.loginForm{
-  color: #0ee0bd;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    border: 3px solid #0ee0bd;
-    border-radius: 10px;
-    justify-content: flex-start;
-    padding: 0;
-    height: 400px;
-
-    form input[type=email], form input[type=password]{
-      width: 200px;
-      border-radius: 5px;
-      height: 20px;
-      margin: 10px;
-    }
-}
     form input[type=submit]{
       background-color: white;
       color: #0ee0bd;
@@ -183,6 +163,8 @@ footer{
 .assessment{
   margin-top:20px;
   margin-bottom: 20px;
+  width: 80%;
+  margin: 20px auto;
 
   .tf-slide-deck-container{
     font-family:'Roboto', sans-serif;
