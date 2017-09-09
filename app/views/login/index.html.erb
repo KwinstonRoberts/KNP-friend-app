@@ -1,19 +1,26 @@
-<div class='container'>
-  <h2 class='center'>Login</h2>
-  <div class="row">
-  <%= form_for :login, url: login_index_path do |f| %>
-    <div class="row">
-      <div class="browser-default col m6">
+
+
+<div class="wrapper">
+  <div class="loginForm">
+    <h2>Login</h2>
+
+    <%= form_for :login, url: login_index_path do |f| %>
+
+      <div class="field">
         <%= f.label :email %><br />
-        <%= f.email_field :email,class: 'browser-default blue-grey lighten-5', autofocus: true %>
+        <%= f.email_field :email, autofocus: true %>
       </div>
-      <div class="browser-default col m6">
+
+      <div class="field">
         <%= f.label :password, "Password" %><br />
-        <%= f.password_field :password,class: 'browser-default blue-grey lighten-5', autofocus: true, autocomplete: "off" %>
+        <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
       </div>
+
+
+      <%= f.submit "Login", method: :post %>
+
+
+    <% end %>
     </div>
-    <div class="row">
-      <%= f.submit "Login", method: :post, class: 'btn' %>
-    </div>
-  <% end %>
 </div>
+
