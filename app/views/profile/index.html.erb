@@ -1,6 +1,21 @@
 
  <% assessment = @assessments.personality_types.first %>
+ <% trait = @traits.first %>
  <img src='<%= assessment.personality_type.badge.image_large %>'>
- <h2><%= assessment.personality_type.name %></h2>
- <h4><%= assessment.score %>%</h4>
+ <h2> Personality Type </h2>
+ <h3><%= assessment.personality_type.name %></h3>
+ <h4><%= assessment.score %></h4>
  <h4><%= assessment.personality_type.description %></h4>
+
+
+
+ <h4> Famous person with same personality - <%= assessment.personality_type.famous_people.first.name %></h4>
+
+
+ <h2> Personality Trait </h2>
+ <h3> <%= trait.personality_trait.name%>  </h3>
+ <h4> <%= trait.score%> </h4>
+ <h4> <%= trait.personality_trait.definition%> </h4>
+ <h4> <%= trait.personality_trait.description%> </h4>
+
+  <h2> Matches </h2>

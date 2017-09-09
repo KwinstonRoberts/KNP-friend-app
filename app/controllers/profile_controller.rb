@@ -13,5 +13,9 @@ class ProfileController < ApplicationController
       public_key: ENV["PUBLIC_KEY"],
       })
     @assessments = traitify.find_results(@user.personality)
+    @traits = traitify.raw_personality_traits(@user.personality)
+    @Matches =
   end
+
+
 end
