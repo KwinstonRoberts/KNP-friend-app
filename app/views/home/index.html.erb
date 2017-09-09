@@ -17,3 +17,33 @@
   </div>
 
 </div>
+
+<div id="modal">
+    <!-- modal box content -->
+    <div class="register">
+        <h2>Register</h2>
+
+      <%= form_for :register, url: register_index_path do |f| %>
+
+      <div class="field">
+        <%= f.label :name %><br />
+        <%= f.text_field :name, autofocus: true %>
+      </div>
+
+
+      <div class="field">
+        <%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, "Password" %><br />
+        <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+      </div>
+
+      <%= f.submit "Register", method: :post %>
+
+    <% end %>
+  </div>
+
+</div>
