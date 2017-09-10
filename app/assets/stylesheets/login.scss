@@ -2,13 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$primary-color: #0ee0bd;
+
 .loginWrapper{
   background-color: white;
-  border-top: 8px solid #0ee0bd;
-  border-bottom: 8px solid #0ee0bd;
+  border-top: 8px solid $primary-color;
+  border-bottom: 8px solid $primary-color;
 }
 .loginContainer{
-  border: 5px solid #0ee0bd;
+  border: 5px solid $primary-color;
   background-color: white;
   border-radius: 16px;
 
@@ -22,14 +24,14 @@
 
 
   header{
-    border-bottom: 5px solid #0ee0bd;
+    border-bottom: 5px solid $primary-color;
     display: flex;
     justify-content: space-between;
 
     .circle:before {
       content: ' \25CF';
       font-size: 30px;
-      color: #0ee0bd;
+      color: $primary-color;
       padding-left:10px;
 
     }
@@ -70,7 +72,7 @@
           width: 100px;
           padding: 5px;
           border-radius: 5px;
-          background-color: #0ee0bd;
+          background-color: $primary-color;
           color: white;
         }
         form input[type=submit]:hover{
@@ -79,7 +81,7 @@
           transition: .6s;
         }
         h2{
-          color: #0ee0bd;
+          color: $primary-color;
         }
   }
 }
