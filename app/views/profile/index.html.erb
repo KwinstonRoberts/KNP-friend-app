@@ -19,3 +19,11 @@
  <h4> <%= trait.personality_trait.description%> </h4>
 
   <h2> Matches </h2>
+<% if @matches %>
+  <% @matches.each do |match| %>
+    <% if @user.name != match.name %>
+      <h3><%=match.name%></h3>
+      <img src='<%=@traitify.find_results(match.personality).personality_types.first.personality_type.badge.image_small%>'>
+    <%end%>
+  <% end %>
+<% end %>
