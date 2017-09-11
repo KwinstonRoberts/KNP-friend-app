@@ -1,0 +1,4 @@
+  <% @matches.each do |match| %>
+    <h3><%=match[:name]%></h3>
+    <img src='<%=match[:personality].badge.image_small%>'>
+  <%end%>

@@ -9,7 +9,6 @@ user = User.create({
   password: '351797asd'
 })
 
-
 def do_assessment(user)
   traitify = Traitify.new({
     host: "https://api-sandbox.traitify.com",
@@ -28,11 +27,10 @@ def do_assessment(user)
   traitify.update_slides(assessment.id, slides)
   user.personality = assessment.id
   user.save
-  return traitify.find_assessment(assessment.id)
+  return traitify.find_results(assessment.id)
 end
 
 50.times do |user|
-
   user = User.create({
     name: Faker::Name.name,
     email: Faker::Internet.email,

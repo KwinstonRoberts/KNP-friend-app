@@ -1,5 +1,6 @@
 class ProfileController < ApplicationController
   def index
+
     @user = User.find(session[:user_id])
     if @user.personality
       @traitify = Traitify.new({
@@ -15,14 +16,29 @@ class ProfileController < ApplicationController
       redirect_to test_index_path
     end
   end
-  private
+  def get_ptype(res)
+    return res.personality_types.first.personality_type.name
+  end
+  def compare_ptype(res)
+    if res.personality_types.first.personality_type.name === get_ptype(@assessment)
+      return true
+    else
+      res.personality_types.each do |r|
+        if(r.score + @assessment.personality_types.first.score)/2 >= 75
+          return true
+        else
+          return false
+        end
+      end
+    end
+  end
   def get_matches
     matches = []
-    User.all().each do |match|
-      if match.personality
-        res = @traitify.find_results(match.personality)
-        if res.personality_types.first.personality_type.name === @assessment.personality_types.first.personality_type.name
-            matches.push({name: match.name, personality: res.personality_types.first.personality_type, compliments: res.personality_blend.compliments})
+    User.all().pluck(:personality,:id,:name).each do |match|
+      if match[0] && match[1] != session[:user_id]
+        res = @traitify.find_results(match[0])
+        if  get_ptype(res) === get_ptype(@assessment) || compare_ptype(res)
+            matches.push({name: match[2], personality: res.personality_types.first.personality_type})
         end
       end
     end
