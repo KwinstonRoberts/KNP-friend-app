@@ -17,7 +17,7 @@
   <h2> Matches </h2>
 <% if @matches %>
   <% @matches.each do |match| %>
-    <h3><%=match.name%></h3>
-    <img src='<%=@traitify.find_results(match.personality).personality_types.first.personality_type.badge.image_small%>'>
+    <h3><%=match[:name]%></h3>
+    <img src='<%=match[:personality].badge.image_small%>'>
   <%end%>
 <%end%>
