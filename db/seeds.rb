@@ -25,9 +25,14 @@ def do_assessment(user)
     slide
   end
   traitify.update_slides(assessment.id, slides)
-  user.personality = assessment.id
-  user.save
-  return traitify.find_results(assessment.id)
+  r = traitify.find_results(assessment.id)
+  result = Result.new
+  result.user_id = user.id
+  result.assessment_id = assessment.id
+  result.rank = '' + r.personality_types.first.personality_type.name + ',' + r.personality_types.first.score.to_s + ',' + r.personality_types[1].personality_type.name + ',' + r.personality_types[1].score.to_s + ',' + r.personality_types[2].personality_type.name + ',' + r.personality_types[2].score.to_s
+  result.image = r.personality_types.first.personality_type.badge.image_small
+  result.save
+  return result.rank
 end
 
 50.times do |user|

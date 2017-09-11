@@ -2,15 +2,15 @@ class ProfileController < ApplicationController
   def index
 
     @user = User.find(session[:user_id])
-    if @user.personality
+    if @user.result
       @traitify = Traitify.new({
         host: "https://api-sandbox.traitify.com",
         version: "v1",
         secret_key: ENV["SECRET_KEY"],
         public_key: ENV["PUBLIC_KEY"]
       })
-      @assessment = @traitify.find_results(@user.personality)
-      @traits = @traitify.raw_personality_traits(@user.personality)
+      @assessment = @traitify.find_results(@user.result.assessment_id)
+      @traits = @traitify.raw_personality_traits(@user.result.assessment_id)
       @matches = get_matches
     else
       redirect_to test_index_path
@@ -20,25 +20,33 @@ class ProfileController < ApplicationController
     return res.personality_types.first.personality_type.name
   end
   def compare_ptype(res)
-    if res.personality_types.first.personality_type.name === get_ptype(@assessment)
+    scores = res.rank.split(',')
+    ptypes = []
+    ptypes[0] = scores.slice(0,2)
+    ptypes[1] = scores.slice(2,2)
+    ptypes[2] = scores.slice(4,2)
+
+    if scores[0] === get_ptype(@assessment)
       return true
     else
-      res.personality_types.each do |r|
-        if(r.score + @assessment.personality_types.first.score)/2 >= 75
-          return true
-        else
-          return false
+      ptypes.each do |r|
+        if(r[0] === get_ptype(@assessment))
+          if (r[1].to_i + @assessment.personality_types.first.score)/2 >= 75
+            return true
+          else
+            return false
+          end
         end
       end
     end
   end
   def get_matches
     matches = []
-    User.all().pluck(:personality,:id,:name).each do |match|
-      if match[0] && match[1] != session[:user_id]
-        res = @traitify.find_results(match[0])
-        if  get_ptype(res) === get_ptype(@assessment) || compare_ptype(res)
-            matches.push({name: match[2], personality: res.personality_types.first.personality_type})
+    User.all().each do |match|
+      if match.result && match.id != session[:user_id]
+        res = match.result
+        if compare_ptype(res)
+            matches.push({name: match.name, personality: res.rank.split(',')[1],result: match.result.image})
         end
       end
     end
