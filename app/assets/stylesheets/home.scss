@@ -40,7 +40,9 @@ nav {
 .wrapper{
   background-color: white;
   border-top: 2px solid $primary-color;
+
   border-bottom: 2px solid $primary-color;
+
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -202,6 +204,35 @@ footer{
       }
   }
 
+}
+@media only screen and (max-width: 1335px){
+    .wrapper .box{
+      margin: 20px 5px 5px;
+      border-radius: 10px;
+    }
+    #modal{
+      top: 40%;
+    }
+ }
+
+@media only screen and (max-width: 870px){
+  .wrapper{
+    background-color: #fff;
+  }
+  #modal{
+    top: 20%;
+    width: 100%;
+    left: 25%;
+  }
+}
+@media only screen and (max-width: 500px){
+  #modal .register input{
+    width: 180px;
+  }
+  nav{
+    flex-wrap: wrap;
+
+  }
 }
 
 
