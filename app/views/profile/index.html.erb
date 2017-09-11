@@ -1,5 +1,4 @@
-
- <% assessment = @assessments.personality_types.first %>
+ <% assessment = @assessment.personality_types.first %>
  <% trait = @traits.first %>
  <img src='<%= assessment.personality_type.badge.image_large %>'>
  <h2> Personality Type </h2>
@@ -7,10 +6,7 @@
  <h4><%= assessment.score %></h4>
  <h4><%= assessment.personality_type.description %></h4>
 
-
-
  <h4> Famous person with same personality - <%= assessment.personality_type.famous_people.first.name %></h4>
-
 
  <h2> Personality Trait </h2>
  <h3> <%= trait.personality_trait.name%>  </h3>
@@ -21,9 +17,7 @@
   <h2> Matches </h2>
 <% if @matches %>
   <% @matches.each do |match| %>
-    <% if @user.name != match.name %>
-      <h3><%=match.name%></h3>
-      <img src='<%=@traitify.find_results(match.personality).personality_types.first.personality_type.badge.image_small%>'>
-    <%end%>
-  <% end %>
-<% end %>
+    <h3><%=match.name%></h3>
+    <img src='<%=@traitify.find_results(match.personality).personality_types.first.personality_type.badge.image_small%>'>
+  <%end%>
+<%end%>
