@@ -17,6 +17,7 @@ class ProfileController < ApplicationController
         @assessments = traitify.find_results(@user.personality)
         @traits = traitify.raw_personality_traits(@user.personality)
         @matches = nil
+        @activities = Activity.all()
       else
         redirect_to test_index_path
       end

@@ -18,4 +18,11 @@
  <h4> <%= trait.personality_trait.definition%> </h4>
  <h4> <%= trait.personality_trait.description%> </h4>
 
+
+  <% @activities.each do |activity| %>
+     <% if activity.personality_type == assessment.personality_type.name %>
+          <h3> <%= activity.personality_type %> | <%= activity.name %> </h3>
+    <% end %>
+  <% end %>
+
   <h2> Matches </h2>

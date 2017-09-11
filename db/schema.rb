@@ -10,17 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170908015113) do
+ActiveRecord::Schema.define(version: 20170910004411) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
     t.string   "name"
-    t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["user_id"], name: "index_activities_on_user_id", using: :btree
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.string   "personality_type"
   end
 
   create_table "matches", force: :cascade do |t|
@@ -44,5 +43,4 @@ ActiveRecord::Schema.define(version: 20170908015113) do
     t.datetime "updated_at",      null: false
   end
 
-  add_foreign_key "activities", "users"
 end
