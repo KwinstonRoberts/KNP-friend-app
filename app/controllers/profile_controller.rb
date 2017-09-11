@@ -31,7 +31,9 @@ class ProfileController < ApplicationController
     else
       ptypes.each do |r|
         if(r[0] === get_ptype(@assessment))
-          if (r[1].to_i + @assessment.personality_types.first.score)/2 >= 75
+          avg = (r[1].to_i + @assessment.personality_types.first.score.to_i)/2
+          if avg >= 70
+            puts avg
             return true
           else
             return false
@@ -45,7 +47,7 @@ class ProfileController < ApplicationController
     User.all().each do |match|
       if match.result && match.id != session[:user_id]
         res = match.result
-        if compare_ptype(res)
+        if compare_ptype(res) === true
             matches.push({name: match.name, personality: res.rank.split(',')[1],result: match.result.image})
         end
       end
