@@ -10,7 +10,7 @@ $primary-color: #0ee0bd;
 
 body {
   font-family: 'Roboto', sans-serif;
-  color: #050607;
+  color: #4d4d4d;
   /* Use at your own discretion */
   -webkit-transform: translateZ(0);
 }
@@ -40,9 +40,7 @@ nav {
 .wrapper{
   background-color: white;
   border-top: 2px solid $primary-color;
-
   border-bottom: 2px solid $primary-color;
-
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
