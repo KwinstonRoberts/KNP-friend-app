@@ -30,7 +30,7 @@
     </div>
 
     <div class="activityWrapper">
-      <h2>Suggested Activities for <%= assessment.personality_type.name %></h2>
+      <h2>Activities for <%= assessment.personality_type.name %></h2>
         <% @activities.each do |activity| %>
           <% if activity.personality_type == assessment.personality_type.name %>
 
@@ -59,18 +59,24 @@
   </div>
 
   <div class="matchesWrapper">
+    <div class="headline">
 
       <h2> Matches </h2>
-        <div class="matchesInner">
-        <% if @matches %>
-        <% @matches.each do |match| %>
-          <h3><%= match[:name] %></h3>
-          <img src='<%=match[:result]%>'
-        <%end%>
-      <%end%>
-      </div>
     </div>
 
+        <% if @matches %>
+        <% @matches.each do |match| %>
+        <div class="matchesInner">
+          <h3><%= match[:name] %></h3>
+          <img src='<%=match[:result]%>'>
+        </div>
 
+        <%end%>
+      <%end%>
+
+
+
+
+</div>
 </div>
 

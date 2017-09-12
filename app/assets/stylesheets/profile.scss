@@ -97,6 +97,27 @@ $darkenColor: darken($activeColor, 20%);
   }
 }
 
+.matchesWrapper{
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .headline{
+    flex: 1 100%;
+    border-bottom: 1px solid $activeColor;
+  }
+  .matchesInner{
+    margin: 12px;
+    border: 2px solid $activeColor;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 5px 5px 10px #b8b8b8;
+    flex: 1 20%;
+  }
+}
 
 
 
@@ -106,6 +127,10 @@ $darkenColor: darken($activeColor, 20%);
   .inner{
     flex-direction: column;
     justify-content: center;
+
+    .typeWrapper{
+      margin: 0 0 20px 0;
+    }
 
   }
 
