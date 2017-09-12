@@ -6,6 +6,7 @@
 //font-family: 'Roboto', sans-serif;
 
 $primary-color: #0ee0bd;
+$dark-grey: #4e4e4e;
 
 
 body {
@@ -18,8 +19,10 @@ body {
 nav {
   display: flex;
   justify-content: space-between;
-  height: 80px;
-  background-color: #0ee0bd;
+  height: 100px;
+  background-color: $dark-grey;
+  padding-left: 20px;
+  border-bottom: 4px solid $primary-color;
 
   img {
     align-self: center;
@@ -40,8 +43,6 @@ nav {
 
 .wrapper{
   background-color: white;
-  border-top: 2px solid $primary-color;
-  border-bottom: 2px solid $primary-color;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
@@ -80,6 +81,7 @@ footer{
   display: flex;
   justify-content: space-between;
   height: 80px;
+  background-color: $dark-grey;
   border-bottom: 1px solid $primary-color;
 
   .footerText, .social {
@@ -92,8 +94,7 @@ footer{
     border-radius: 45%;
 
     &:hover{
-      opacity: .5;
-      box-shadow: 15px 11px 51px 0px rgba(184,184,184,1);
+      opacity: .7;
     }
   }
 
