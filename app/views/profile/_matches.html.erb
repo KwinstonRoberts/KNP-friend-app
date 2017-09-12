@@ -1,0 +1,4 @@
+  <% @matches.each do |match| %>
+    <h3><%=match[:name]%></h3>
+    <%= image_tag(match[:result])%>
+  <%end%>

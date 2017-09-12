@@ -8,7 +8,7 @@ class TestController < ApplicationController
       deck_id: "core"
     )
     user = User.find(session[:user_id])
-    if(!user.personality)
+    if(!user.result)
       @assessment = traitify.create_assessment(deck_id: 'core')
     else
       redirect_to profile_index_path
