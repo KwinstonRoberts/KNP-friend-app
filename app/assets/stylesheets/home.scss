@@ -19,17 +19,18 @@ nav {
   display: flex;
   justify-content: space-between;
   height: 80px;
-  background-color: #fff;
+  background-color: #0ee0bd;
 
   img {
-    align-self: flex-end;
+    align-self: center;
   }
 
   a{
-    padding: 10px 30px 0 0;
+    align-self: center;
     text-decoration: none;
-    color: $primary-color;
+    color: white;
     font-size: 1.1em;
+    padding-right: 30px;
   }
 
   a:hover{
@@ -48,10 +49,10 @@ nav {
 
   .box{
     background-color: #fff;
-    width: 280px;
-    height: 300px;
+    height: auto;
     padding: 25px;
-    margin: 130px 0;
+    border-radius: 8px;
+    margin: 130px 10px;
     box-shadow: 15px 11px 51px 0px rgba(184,184,184,1);
     display: flex;
     flex-direction: column;
@@ -60,6 +61,7 @@ nav {
         color: $primary-color;
         text-align: center;
         font-size: 1.4em;
+        margin: 0 0 35px;
       }
       img{
         max-height: 250px;
@@ -125,11 +127,14 @@ footer{
 
     h2{
       color: $primary-color;
-      font-size: 1.4em;
+      font-size: 1.8em;
+      margin-top: 0;
     }
 
     label{
       color: #4e4e4e;
+      font-weight: bold;
+      font-size: 1.2em;
     }
 
     input{
