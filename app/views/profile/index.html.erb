@@ -1,14 +1,8 @@
+<% content_for :nav_assessment_class do %>
+  <%= assessment_css(@assessment) %>
+<% end %>
 
-
-
-
-
-
-
-
-
-
-<div class="profileWrapper">
+<div class="profileWrapper <%= assessment_css(@assessment) %>">
 <div class="inner">
     <div class="typeWrapper">
 
@@ -69,6 +63,7 @@
         <div class="matchesInner">
           <h3><%= match[:name] %></h3>
           <img src='<%=match[:result]%>'>
+          <p></p>
         </div>
 
         <%end%>

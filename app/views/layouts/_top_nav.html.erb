@@ -1,4 +1,4 @@
-<nav>
+<nav class="<%= yield :nav_assessment_class %>" >
   <%= image_tag("whiteLogo.png") %>
   <% if session[:user_id] %>
   <%= link_to 'Logout', login_path(session[:user_id]), method: :delete %>
@@ -6,3 +6,5 @@
   <%= link_to 'Login', login_index_path %>
   <%end%>
 </nav>
+
+

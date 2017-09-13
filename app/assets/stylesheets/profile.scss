@@ -1,6 +1,12 @@
 $primary-color: #0ee0bd;
-$activeColor: #9788f2; //purplethoughtful
-$darkenColor: darken($activeColor, 20%);
+$activeColor: #4e4e4e;
+$mellow: #05dd71;
+$adventure: #91c61e;
+$charismatic: #f77e2d;
+$social: #ed5858;
+$reliable: #dbc628;
+$rational: #0598d8;
+$thoughtful: #9788f2;
 
 .profileWrapper{
   margin-top: 50px;
@@ -55,7 +61,7 @@ $darkenColor: darken($activeColor, 20%);
   height: 28px;
   position: relative;
   margin: 10px 0;
-  background: white;
+
   background-color: $activeColor;
   border-radius: 5px;
   background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
@@ -78,7 +84,7 @@ $darkenColor: darken($activeColor, 20%);
       position: absolute;
       top: 4px;
       left: 4px;
-      border: 3px solid $activeColor;
+      border: 3px solid #4e4e4e;
       border-top: none;
       border-right: none;
       background: transparent;
@@ -118,8 +124,184 @@ $darkenColor: darken($activeColor, 20%);
     flex: 1 20%;
   }
 }
+/******************************
+STYLES FOR COLOR CHANGES
+*******************************/
 
+.mellowType{
+  h2{
+    color: $mellow;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $mellow;
+    }
+    .activityWrapper{
+      border: 4px solid $mellow;
+      }
+  }
+  .squaredTwo {
+    background-color: $mellow;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $mellow;
+    }
+    .matchesInner{
+      border: 2px solid $mellow;
+    }
+  }
+}
 
+.thoughtfulType{
+  h2{
+    color: $thoughtful;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $thoughtful;
+    }
+    .activityWrapper{
+      border: 4px solid $thoughtful;
+      }
+  }
+  .squaredTwo {
+    background-color: $thoughtful;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $thoughtful;
+    }
+    .matchesInner{
+      border: 2px solid $thoughtful;
+    }
+  }
+}
+
+.adventureType{
+  h2{
+    color: $adventure;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $adventure;
+    }
+    .activityWrapper{
+      border: 4px solid $adventure;
+      }
+  }
+  .squaredTwo {
+    background-color: $adventure;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $adventure;
+    }
+    .matchesInner{
+      border: 2px solid $adventure;
+    }
+  }
+}
+
+.charismaticType{
+  h2{
+    color: $charismatic;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $charismatic;
+    }
+    .activityWrapper{
+      border: 4px solid $charismatic;
+      }
+  }
+  .squaredTwo {
+    background-color: $charismatic;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $charismatic;
+    }
+    .matchesInner{
+      border: 2px solid $charismatic;
+    }
+  }
+}
+
+.socialType{
+  h2{
+    color: $social;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $social;
+    }
+    .activityWrapper{
+      border: 4px solid $social;
+      }
+  }
+  .squaredTwo {
+    background-color: $social;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $social;
+    }
+    .matchesInner{
+      border: 2px solid $social;
+    }
+  }
+}
+
+.reliableType{
+  h2{
+    color: $reliable;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $reliable;
+    }
+    .activityWrapper{
+      border: 4px solid $reliable;
+      }
+  }
+  .squaredTwo {
+    background-color: $reliable;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $reliable;
+    }
+    .matchesInner{
+      border: 2px solid $reliable;
+    }
+  }
+}
+
+.rationalType{
+  h2{
+    color: $rational;
+  }
+  .inner{
+    .typeWrapper {
+      border: 4px solid $rational;
+    }
+    .activityWrapper{
+      border: 4px solid $rational;
+      }
+  }
+  .squaredTwo {
+    background-color: $rational;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $rational;
+    }
+    .matchesInner{
+      border: 2px solid $rational;
+    }
+  }
+}
 
 
 
