@@ -9,6 +9,7 @@ class ProfileController < ApplicationController
         secret_key: ENV["SECRET_KEY"],
         public_key: ENV["PUBLIC_KEY"]
       })
+      @user = User.find(session[:user_id])
       @assessment = @traitify.find_results(@user.result.assessment_id)
       @traits = @traitify.raw_personality_traits(@user.result.assessment_id)
       @matches = get_matches

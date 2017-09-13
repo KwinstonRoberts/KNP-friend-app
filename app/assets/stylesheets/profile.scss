@@ -10,6 +10,9 @@ $thoughtful: #9788f2;
 
 .profileWrapper{
   margin-top: 50px;
+  h1{
+    color: #4e4e4e;
+  }
   h2{
     color: #9788f2;
     text-align: center;
@@ -24,14 +27,11 @@ $thoughtful: #9788f2;
   justify-content: space-around;
 
   .typeWrapper {
-    border: 4px solid $activeColor;
     border-radius: 10px;
     padding: 10px;
   }
 
   .activityWrapper{
-
-    border: 4px solid $activeColor;
     border-radius: 10px;
     padding: 10px 40px 10px;
 
@@ -104,7 +104,7 @@ $thoughtful: #9788f2;
 }
 
 .matchesWrapper{
-  width: 90%;
+  width: 80%;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
@@ -115,13 +115,13 @@ $thoughtful: #9788f2;
     border-bottom: 1px solid $activeColor;
   }
   .matchesInner{
-    margin: 12px;
+    margin: 30px;
     border: 2px solid $activeColor;
     padding: 10px;
-    border-radius: 8px;
+    border-radius: 20px;
     text-align: center;
     box-shadow: 5px 5px 10px #b8b8b8;
-    flex: 1 20%;
+    flex: 1 25%;
   }
 }
 /******************************
@@ -129,16 +129,8 @@ STYLES FOR COLOR CHANGES
 *******************************/
 
 .mellowType{
-  h2{
+  h1, h2{
     color: $mellow;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $mellow;
-    }
-    .activityWrapper{
-      border: 4px solid $mellow;
-      }
   }
   .squaredTwo {
     background-color: $mellow;
@@ -154,16 +146,8 @@ STYLES FOR COLOR CHANGES
 }
 
 .thoughtfulType{
-  h2{
+  h1, h2{
     color: $thoughtful;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $thoughtful;
-    }
-    .activityWrapper{
-      border: 4px solid $thoughtful;
-      }
   }
   .squaredTwo {
     background-color: $thoughtful;
@@ -179,16 +163,8 @@ STYLES FOR COLOR CHANGES
 }
 
 .adventureType{
-  h2{
+  h1, h2{
     color: $adventure;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $adventure;
-    }
-    .activityWrapper{
-      border: 4px solid $adventure;
-      }
   }
   .squaredTwo {
     background-color: $adventure;
@@ -204,16 +180,8 @@ STYLES FOR COLOR CHANGES
 }
 
 .charismaticType{
-  h2{
+  h1, h2{
     color: $charismatic;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $charismatic;
-    }
-    .activityWrapper{
-      border: 4px solid $charismatic;
-      }
   }
   .squaredTwo {
     background-color: $charismatic;
@@ -229,16 +197,8 @@ STYLES FOR COLOR CHANGES
 }
 
 .socialType{
-  h2{
+  h1, h2{
     color: $social;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $social;
-    }
-    .activityWrapper{
-      border: 4px solid $social;
-      }
   }
   .squaredTwo {
     background-color: $social;
@@ -254,16 +214,8 @@ STYLES FOR COLOR CHANGES
 }
 
 .reliableType{
-  h2{
+  h1, h2{
     color: $reliable;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $reliable;
-    }
-    .activityWrapper{
-      border: 4px solid $reliable;
-      }
   }
   .squaredTwo {
     background-color: $reliable;
@@ -279,16 +231,8 @@ STYLES FOR COLOR CHANGES
 }
 
 .rationalType{
-  h2{
+  h1, h2{
     color: $rational;
-  }
-  .inner{
-    .typeWrapper {
-      border: 4px solid $rational;
-    }
-    .activityWrapper{
-      border: 4px solid $rational;
-      }
   }
   .squaredTwo {
     background-color: $rational;
