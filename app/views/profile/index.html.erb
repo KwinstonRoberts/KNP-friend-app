@@ -1,40 +1,31 @@
 <% content_for :nav_assessment_class do %>
-  <%= assessment_css(@assessment) %>
+  <%= assessment_css(@user) %>
 <% end %>
 
-<div class="profileWrapper <%= assessment_css(@assessment) %>">
+<div class="profileWrapper <%= assessment_css(@user) %>">
 <div class="inner">
     <div class="typeWrapper">
 
-       <% assessment = @assessment.personality_types.first %>
-       <% trait = @traits.first %>
-       <h1><%= @user.name %></h1>
-       <img src='<%= assessment.personality_type.badge.image_large %>'>
-       <h2> Personality Type </h2>
-       <h3><%= assessment.personality_type.name %></h3>
-       <h4><%= assessment.score %></h4>
-       <h4><%= assessment.personality_type.description %></h4>
 
-       <h4> Famous person with same personality - <%= assessment.personality_type.famous_people.first.name %></h4>
+       <h1><%= @user.name %></h1>
+       <%= image_tag 'https://traitify-api.s3.amazonaws.com/badges/' + @user.result.personalities.first.name.downcase + '/flat/large'%>
+       <h2> Personality Type </h2>
+       <h3><%= @user.result.personalities.first.name %></h3>
+       <h4><%= @user.result.personalities.first.score.ceil %></h4>
+       <h4><%= @assessment.personality_types.first.personality_type.description %></h4>
+
+       <!-- <h4> Famous person with same personality - </h4> -->
 
        <h2> Personality Trait </h2>
-       <h3> <%= trait.personality_trait.name%>  </h3>
-       <h4> <%= trait.score%> </h4>
-       <h4> <%= trait.personality_trait.definition%> </h4>
-       <h4> <%= trait.personality_trait.description%> </h4>
+       <h3> <%= @traits.name %>  </h3>
     </div>
 
     <div class="activityWrapper">
-      <h2>Activities for <%= assessment.personality_type.name %></h2>
+      <h2>Activities for <%= @user.result.personalities.first.name %></h2>
         <% @activities.each do |activity| %>
-          <% if activity.personality_type == assessment.personality_type.name %>
-
-
-
+          <% if activity.personality_type == @user.result.personalities.first.name %>
         <section title=".squaredTwo">
     <!-- .squaredTwo -->
-
-
           <div class="checkContainer">
             <div class="squaredTwo">
               <%= check_box_tag activity.id %>
@@ -42,12 +33,8 @@
             </div>
             <span class="checkLabel"><%= activity.name %></span>
           </div>
-
-
     <!-- end .squaredTwo -->
       </section>
-
-
           <% end %>
       <% end %>
     </div>
@@ -59,20 +46,14 @@
       <h2> Matches </h2>
     </div>
 
-        <% if @matches %>
-        <% @matches.each do |match| %>
+      <% @matches.each do |match|  %>
+        <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
         <div class="matchesInner">
-          <h3><%= match[:name] %></h3>
-          <img src='<%=match[:result]%>'>
+          <h3><%= match.name %></h3>
+          <h3><%= match.result.personalities.first.name %></h3>
+          <img src='<%=path%>'>
           <p></p>
         </div>
-
-        <%end%>
       <%end%>
-
-
-
-
+  </div>
 </div>
-</div>
-

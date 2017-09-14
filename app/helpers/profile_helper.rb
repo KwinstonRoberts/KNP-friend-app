@@ -1,6 +1,7 @@
 module ProfileHelper
   def assessment_css(assessment)
-    case assessment.first[1].personality_type_1.name
+    puts assessment
+    case assessment.result.personalities.first.name
       when "Mellow"
         return "mellowType"
       when "Social"
