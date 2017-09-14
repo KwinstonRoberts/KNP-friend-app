@@ -65,7 +65,6 @@ $thoughtful: #9788f2;
   background-color: $activeColor;
   border-radius: 5px;
   background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-  box-shadow: inset 0px 1px 1px white, 0px 1px 3px rgba(0,0,0,0.5);
   display: inline-block;
   label {
     width: 20px;
@@ -76,7 +75,6 @@ $thoughtful: #9788f2;
     left: 4px;
     top: 4px;
     background: linear-gradient(top, #222 0%, #45484d 100%);
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,1);
     &:after {
       content: '';
       width: 9px;
@@ -175,6 +173,10 @@ STYLES FOR COLOR CHANGES
     }
     .matchesInner{
       border: 2px solid $adventure;
+
+      h3{
+        color:$adventure;
+      }
     }
   }
 }
@@ -246,6 +248,10 @@ STYLES FOR COLOR CHANGES
     }
   }
 }
+
+/*********************************
+HOVER EFFECTS ON MATCHES
+***********************************/
 
 
 
