@@ -14,8 +14,6 @@
        <h4><%= @user.result.personalities.first.score.ceil %></h4>
        <h4><%= @assessment.personality_types.first.personality_type.description %></h4>
 
-       <!-- <h4> Famous person with same personality - </h4> -->
-
        <h2> Personality Trait </h2>
        <h3> <%= @traits.name %>  </h3>
     </div>
@@ -24,17 +22,17 @@
       <h2>Activities for <%= @user.result.personalities.first.name %></h2>
         <% @activities.each do |activity| %>
           <% if activity.personality_type == @user.result.personalities.first.name %>
-        <section title=".squaredTwo">
-    <!-- .squaredTwo -->
-          <div class="checkContainer">
-            <div class="squaredTwo">
-              <%= check_box_tag activity.id %>
-              <%= label_tag activity.id, "" %>
-            </div>
-            <span class="checkLabel"><%= activity.name %></span>
-          </div>
-    <!-- end .squaredTwo -->
-      </section>
+            <section title=".squaredTwo">
+        <!-- .squaredTwo -->
+              <div class="checkContainer">
+                <div class="squaredTwo">
+                  <%= check_box_tag activity.id %>
+                  <%= label_tag activity.id, "" %>
+                </div>
+                <span class="checkLabel"><%= activity.name %></span>
+              </div>
+        <!-- end .squaredTwo -->
+            </section>
           <% end %>
       <% end %>
     </div>
@@ -42,18 +40,16 @@
 
   <div class="matchesWrapper">
     <div class="headline">
-
       <h2> Matches </h2>
     </div>
-
-      <% @matches.each do |match|  %>
-        <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
-        <div class="matchesInner">
-          <h3><%= match.name %></h3>
-          <h3><%= match.result.personalities.first.name %></h3>
-          <img src='<%=path%>'>
-          <p></p>
-        </div>
-      <%end%>
+    <% @matches.each do |match|  %>
+      <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
+      <div class="matchesInner">
+        <h3><%= match.name %></h3>
+        <h3><%= match.result.personalities.first.name %></h3>
+        <img src='<%=path%>'>
+        <p></p>
+      </div>
+    <%end%>
   </div>
 </div>

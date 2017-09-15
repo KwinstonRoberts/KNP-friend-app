@@ -52,7 +52,7 @@ end
 
 50.times do |user|
   user = User.create({
-    name: Faker::Name.name,
+    name: Faker::Name.first_name,
     email: Faker::Internet.email,
     password: '2222',
     personality: nil

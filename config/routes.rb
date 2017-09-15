@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :login, only:[:index,:create,:destroy]
   resources :register, only:[:index,:create]
   resources :profile, except:[:destroy,:new,:edit]
+  resources :chat
+
 
 
 post '/user/personality' => 'users#personality'
