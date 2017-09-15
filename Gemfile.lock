@@ -285,10 +285,7 @@ DEPENDENCIES
   pg
   poltergeist
   pry
-<<<<<<< HEAD
-=======
   pry-byebug
->>>>>>> 6fa0016ec7aaa895c7fca00f2f37c172904250fc
   puma (~> 3.0)
   rails (~> 5.0.5)
   rspec-rails (~> 3.5)
