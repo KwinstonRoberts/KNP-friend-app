@@ -2,7 +2,7 @@ class ActivitiesController < ApplicationController
   #before_action { @user = User.find(session[:user_id]) }
 
   def create
-    byebug
+
     # redirect '/profiles/2'
     # params gives us the activiy id's that the user selected
     listOfActivities = params["activity"].map{|k, v| v}
