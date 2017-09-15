@@ -14,6 +14,7 @@
 
        <% assessment = @assessment.personality_types.first %>
        <% trait = @traits.first %>
+       <div> <%= @user.name %> </div>
        <img src='<%= assessment.personality_type.badge.image_large %>'>
        <h2> Personality Type </h2>
        <h3><%= assessment.personality_type.name %></h3>
@@ -30,6 +31,8 @@
     </div>
 
     <div class="activityWrapper">
+      <%= form_tag profile_activities_path(@user) do %>
+
       <h2>Suggested Activities for <%= assessment.personality_type.name %></h2>
         <% @activities.each do |activity| %>
           <% if activity.personality_type == assessment.personality_type.name %>
@@ -42,10 +45,12 @@
 
           <div class="checkContainer">
             <div class="squaredTwo">
-              <%= check_box_tag activity.id %>
-              <%= label_tag activity.id, "" %>
+              <label>
+                <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
+                <span class="checkLabel"><%= activity.name %></span>
+              </label>
             </div>
-            <span class="checkLabel"><%= activity.name %></span>
+
           </div>
 
 
@@ -54,6 +59,8 @@
 
 
           <% end %>
+      <% end %>
+      <%= submit_tag :save %>
       <% end %>
     </div>
   </div>

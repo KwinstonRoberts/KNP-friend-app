@@ -53,6 +53,7 @@ GEM
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
     cliver (0.3.2)
+    coderay (1.1.1)
     coffee-rails (4.2.2)
       coffee-script (>= 2.2.0)
       railties (>= 4.0.0)
@@ -113,6 +114,10 @@ GEM
       capybara (~> 2.1)
       cliver (~> 0.3.1)
       websocket-driver (>= 0.2.0)
+    pry (0.10.4)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
     public_suffix (3.0.0)
     puma (3.10.0)
     rack (2.0.3)
@@ -174,6 +179,7 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
+    slop (3.6.0)
     spring (2.0.2)
       activesupport (>= 4.2)
     spring-watcher-listen (2.0.1)
@@ -229,6 +235,7 @@ DEPENDENCIES
   listen (~> 3.0.5)
   pg
   poltergeist
+  pry
   puma (~> 3.0)
   rails (~> 5.0.5)
   render-later

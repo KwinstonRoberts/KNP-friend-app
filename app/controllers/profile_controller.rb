@@ -13,6 +13,7 @@ class ProfileController < ApplicationController
       @traits = @traitify.raw_personality_traits(@user.result.assessment_id)
       @matches = get_matches
       @activities = Activity.all()
+      @user = User.find(session[:user_id])
     else
       redirect_to test_index_path
     end
