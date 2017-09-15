@@ -11,7 +11,8 @@
 # It's strongly recommended that you check this file into your version control system.
 
 
-ActiveRecord::Schema.define(version: 20170914160255) do
+ActiveRecord::Schema.define(version: 20170915010043) do
+
 
 
   # These are extensions that must be enabled in order to support this database
@@ -26,9 +27,37 @@ ActiveRecord::Schema.define(version: 20170914160255) do
     t.index ["users_id"], name: "index_activities_on_users_id", using: :btree
   end
 
+
   create_table "activities_users", id: false, force: :cascade do |t|
     t.integer "user_id",     null: false
     t.integer "activity_id", null: false
+
+  create_table "chat_conversations", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chat_messages", force: :cascade do |t|
+    t.integer  "user_id"
+    t.text     "text"
+    t.integer  "conversation_id"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.index ["conversation_id"], name: "index_chat_messages_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_chat_messages_on_user_id", using: :btree
+  end
+
+  create_table "chat_sessions", force: :cascade do |t|
+    t.integer  "conversation_id"
+    t.integer  "user_id"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+    t.index ["conversation_id"], name: "index_chat_sessions_on_conversation_id", using: :btree
+    t.index ["user_id"], name: "index_chat_sessions_on_user_id", using: :btree
   end
 
   create_table "matches", force: :cascade do |t|
@@ -71,12 +100,13 @@ ActiveRecord::Schema.define(version: 20170914160255) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "personality"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",                          null: false
+    t.datetime "updated_at",                          null: false
+    t.string   "chat_status",     default: "offline"
+    t.string   "name"
   end
 
   add_foreign_key "activities", "users", column: "users_id"

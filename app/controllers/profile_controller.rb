@@ -1,16 +1,10 @@
 class ProfileController < ApplicationController
+
   def index
-    @user = User.includes(:result).where('users.id = ?', session[:user_id]).first
+    @user = User.find(session[:user_id])
     if @user.result
-      @traitify = Traitify.new({
-        host: "https://api-sandbox.traitify.com",
-        version: "v1",
-        secret_key: ENV["SECRET_KEY"],
-        public_key: ENV["PUBLIC_KEY"]
-      })
-
-
-      @assessment = @traitify.find_results(@user.result.assessment_id) 
+      @traitify = Traitify.new
+      @assessment = @traitify.find_results(@user.result.assessment_id)
       @traits = @user.result.traits.first
       @matches = get_matches
       @activities = Activity.all()
@@ -32,7 +26,7 @@ class ProfileController < ApplicationController
       res.result.personalities.each do |r|
         if(r.name === get_ptype(@user))
           avg = (r.score + @user.result.personalities.first.score)/2
-          if avg >= 70
+          if avg >= 65
             puts avg
             return true
           else

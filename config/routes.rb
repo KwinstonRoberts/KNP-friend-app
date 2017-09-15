@@ -7,6 +7,9 @@ Rails.application.routes.draw do
   resources :profile, except:[:destroy,:new,:edit] do
     resources :activities
   end
+  resources :chat
+
+
 
 
 post '/user/personality' => 'users#personality'

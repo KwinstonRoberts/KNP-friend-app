@@ -67,5 +67,4 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
-gem 'layzr-rails'
-gem 'render-later'
+gem "chat"

@@ -1,12 +1,7 @@
 class UsersController < ApplicationController
 
   def personality
-    traitify = Traitify.new({
-      host: "https://api-sandbox.traitify.com",
-      version: "v1",
-      secret_key: ENV["SECRET_KEY"],
-      public_key: ENV["PUBLIC_KEY"]
-    })
+    traitify = Traitify.new
      user = User.find(session[:user_id])
      r = traitify.find_results(params[:id])
      top3 = r.personality_types.slice(0,3)
