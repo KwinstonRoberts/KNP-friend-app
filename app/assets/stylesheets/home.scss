@@ -7,6 +7,13 @@
 
 $primary-color: #0ee0bd;
 $dark-grey: #4e4e4e;
+$mellow: #05dd71;
+$adventure: #91c61e;
+$charismatic: #f77e2d;
+$social: #ed5858;
+$reliable: #dbc628;
+$rational: #0598d8;
+$thoughtful: #9788f2;
 
 
 body {
@@ -26,6 +33,34 @@ nav {
 
   img {
     align-self: center;
+  }
+
+  &.mellowType{
+     border-bottom: 6px solid $mellow;
+  }
+
+  &.adventureType{
+     border-bottom: 6px solid $adventure;
+  }
+
+  &.charismaticType{
+     border-bottom: 6px solid $charismatic;
+  }
+
+  &.socialType{
+     border-bottom: 6px solid $social;
+  }
+
+  &.reliableType{
+     border-bottom: 6px solid $reliable;
+  }
+
+  &.rationalType{
+     border-bottom: 6px solid $rational;
+  }
+
+  &.thoughtfulType{
+     border-bottom: 6px solid $thoughtful;
   }
 
   a{

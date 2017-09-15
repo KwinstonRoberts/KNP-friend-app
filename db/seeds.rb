@@ -2,7 +2,8 @@
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
 User.destroy_all
-
+Activity.destroy_all
+Personality.destroy_all
 
 
 user = User.create({
@@ -28,13 +29,25 @@ def do_assessment(user)
   end
   traitify.update_slides(assessment.id, slides)
   r = traitify.find_results(assessment.id)
+  trait = traitify.raw_personality_traits(assessment.id).first
   result = Result.new
   result.user_id = user.id
   result.assessment_id = assessment.id
-  result.rank = '' + r.personality_types.first.personality_type.name + ',' + r.personality_types.first.score.to_s + ',' + r.personality_types[1].personality_type.name + ',' + r.personality_types[1].score.to_s + ',' + r.personality_types[2].personality_type.name + ',' + r.personality_types[2].score.to_s
   result.image = r.personality_types.first.personality_type.badge.image_small
   result.save
-  return result.rank
+  r.personality_types.each do |ptype|
+    Personality.create({
+      result_id: result.id,
+      name: ptype.personality_type.name,
+      score: ptype.score
+    })
+
+  end
+  Trait.create({
+    result_id: result.id,
+    name: trait.personality_trait.name
+    })
+  return user.result.personalities
 end
 
 50.times do |user|
@@ -130,6 +143,3 @@ activities_list.each do |activity|
     puts act.errors.message
   end
 end
-
-
-

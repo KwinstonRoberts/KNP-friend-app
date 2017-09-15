@@ -1,9 +1,18 @@
 $primary-color: #0ee0bd;
-$activeColor: #9788f2; //purplethoughtful
-$darkenColor: darken($activeColor, 20%);
+$activeColor: #4e4e4e;
+$mellow: #05dd71;
+$adventure: #91c61e;
+$charismatic: #f77e2d;
+$social: #ed5858;
+$reliable: #dbc628;
+$rational: #0598d8;
+$thoughtful: #9788f2;
 
 .profileWrapper{
   margin-top: 50px;
+  h1{
+    color: #4e4e4e;
+  }
   h2{
     color: #9788f2;
     text-align: center;
@@ -18,14 +27,11 @@ $darkenColor: darken($activeColor, 20%);
   justify-content: space-around;
 
   .typeWrapper {
-    border: 4px solid $activeColor;
     border-radius: 10px;
     padding: 10px;
   }
 
   .activityWrapper{
-
-    border: 4px solid $activeColor;
     border-radius: 10px;
     padding: 10px 40px 10px;
 
@@ -55,7 +61,7 @@ $darkenColor: darken($activeColor, 20%);
   height: 28px;
   position: relative;
   margin: 10px 0;
-  background: white;
+
   background-color: $activeColor;
   border-radius: 5px;
   background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
@@ -78,7 +84,7 @@ $darkenColor: darken($activeColor, 20%);
       position: absolute;
       top: 4px;
       left: 4px;
-      border: 3px solid $activeColor;
+      border: 3px solid #4e4e4e;
       border-top: none;
       border-right: none;
       background: transparent;
@@ -97,8 +103,149 @@ $darkenColor: darken($activeColor, 20%);
   }
 }
 
+.matchesWrapper{
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 
+  .headline{
+    flex: 1 100%;
+    border-bottom: 1px solid $activeColor;
+  }
+  .matchesInner{
+    margin: 30px;
+    border: 2px solid $activeColor;
+    padding: 10px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 5px 5px 10px #b8b8b8;
+    flex: 1 25%;
+  }
+}
+/******************************
+STYLES FOR COLOR CHANGES
+*******************************/
 
+.mellowType{
+  h1, h2{
+    color: $mellow;
+  }
+  .squaredTwo {
+    background-color: $mellow;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $mellow;
+    }
+    .matchesInner{
+      border: 2px solid $mellow;
+    }
+  }
+}
+
+.thoughtfulType{
+  h1, h2{
+    color: $thoughtful;
+  }
+  .squaredTwo {
+    background-color: $thoughtful;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $thoughtful;
+    }
+    .matchesInner{
+      border: 2px solid $thoughtful;
+    }
+  }
+}
+
+.adventureType{
+  h1, h2{
+    color: $adventure;
+  }
+  .squaredTwo {
+    background-color: $adventure;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $adventure;
+    }
+    .matchesInner{
+      border: 2px solid $adventure;
+    }
+  }
+}
+
+.charismaticType{
+  h1, h2{
+    color: $charismatic;
+  }
+  .squaredTwo {
+    background-color: $charismatic;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $charismatic;
+    }
+    .matchesInner{
+      border: 2px solid $charismatic;
+    }
+  }
+}
+
+.socialType{
+  h1, h2{
+    color: $social;
+  }
+  .squaredTwo {
+    background-color: $social;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $social;
+    }
+    .matchesInner{
+      border: 2px solid $social;
+    }
+  }
+}
+
+.reliableType{
+  h1, h2{
+    color: $reliable;
+  }
+  .squaredTwo {
+    background-color: $reliable;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $reliable;
+    }
+    .matchesInner{
+      border: 2px solid $reliable;
+    }
+  }
+}
+
+.rationalType{
+  h1, h2{
+    color: $rational;
+  }
+  .squaredTwo {
+    background-color: $rational;
+  }
+  .matchesWrapper{
+    .headline{
+      border-bottom: 1px solid $rational;
+    }
+    .matchesInner{
+      border: 2px solid $rational;
+    }
+  }
+}
 
 
 
@@ -106,6 +253,10 @@ $darkenColor: darken($activeColor, 20%);
   .inner{
     flex-direction: column;
     justify-content: center;
+
+    .typeWrapper{
+      margin: 0 0 20px 0;
+    }
 
   }
 

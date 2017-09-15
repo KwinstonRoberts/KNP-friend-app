@@ -13,9 +13,19 @@ class UsersController < ApplicationController
      result = Result.new
      result.user_id = user.id
      result.assessment_id = params[:id]
-     result.rank = '' + r.personality_types.first.personality_type.name + ',' + r.personality_types.first.score.to_s + ',' + r.personality_types[1].personality_type.name + ',' + r.personality_types[1].score.to_s + ',' + r.personality_types[2].personality_type.name + ',' + r.personality_types[2].score.to_s
      result.image = r.personality_types.first.personality_type.badge.image_small
      result.save
+     r.personality_types.each do |ptype|
+     Personality.create({
+       result_id: result.id,
+       name: ptype.personality_type.name,
+       score: ptype.score,
+       })
+     end
+     Trait.create({
+      result_id: result.id,
+      name: traitify.raw_personality_traits(params[:id]).first.personality_trait.name
+     })
      redirect_to profile_index_path
   end
 end

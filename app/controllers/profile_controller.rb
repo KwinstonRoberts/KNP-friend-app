@@ -1,7 +1,6 @@
 class ProfileController < ApplicationController
   def index
-
-    @user = User.find(session[:user_id])
+    @user = User.includes(:result).where('users.id = ?', session[:user_id]).first
     if @user.result
       @traitify = Traitify.new({
         host: "https://api-sandbox.traitify.com",
@@ -9,32 +8,30 @@ class ProfileController < ApplicationController
         secret_key: ENV["SECRET_KEY"],
         public_key: ENV["PUBLIC_KEY"]
       })
-      @assessment = @traitify.find_results(@user.result.assessment_id)
-      @traits = @traitify.raw_personality_traits(@user.result.assessment_id)
+
+
+      @assessment = @traitify.find_results(@user.result.assessment_id) 
+      @traits = @user.result.traits.first
       @matches = get_matches
       @activities = Activity.all()
       @user = User.find(session[:user_id])
     else
       redirect_to test_index_path
     end
-
+  end
+  def get_deck(res)
+    res.result.personalities.first.name
   end
   def get_ptype(res)
-    return res.personality_types.first.personality_type.name
+    res.result.personalities.first.name
   end
   def compare_ptype(res)
-    scores = res.rank.split(',')
-    ptypes = []
-    ptypes[0] = scores.slice(0,2)
-    ptypes[1] = scores.slice(2,2)
-    ptypes[2] = scores.slice(4,2)
-
-    if scores[0] === get_ptype(@assessment)
+    if get_ptype(res) ===  get_ptype(@user)
       return true
     else
-      ptypes.each do |r|
-        if(r[0] === get_ptype(@assessment))
-          avg = (r[1].to_i + @assessment.personality_types.first.score.to_i)/2
+      res.result.personalities.each do |r|
+        if(r.name === get_ptype(@user))
+          avg = (r.score + @user.result.personalities.first.score)/2
           if avg >= 70
             puts avg
             return true
@@ -47,11 +44,10 @@ class ProfileController < ApplicationController
   end
   def get_matches
     matches = []
-    User.all().each do |match|
+    User.includes(result: [:personalities,:traits]).all().each do |match|
       if match.result && match.id != session[:user_id]
-        res = match.result
-        if compare_ptype(res) === true
-            matches.push({name: match.name, personality: res.rank.split(',')[1],result: match.result.image})
+        if compare_ptype(match) === true
+          matches.push(match)
         end
       end
     end
