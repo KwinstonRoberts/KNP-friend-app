@@ -31,9 +31,11 @@
     <!-- .squaredTwo -->
               <div class="checkContainer">
                 <div class="squaredTwo">
-                  <label>
-                    <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
-                  </label>
+
+
+                   <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
+                   <%= label_tag %>
+
                 </div>
                 <span class="checkLabel"><%= activity.name %></span>
               </div>
