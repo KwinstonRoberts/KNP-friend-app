@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require chat
+//= require sendbird.min
 //= require_tree .
 $(document).ready(function() {
    const instance = Layzr()
