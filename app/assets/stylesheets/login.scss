@@ -2,12 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-$primary-color: #0ee0bd;
+$primary-color: #43edd8;
 
 .loginWrapper{
   background-color: white;
-  border-top: 2px solid $primary-color;
-  border-bottom: 2px solid $primary-color;
 
 }
 .loginContainer{
@@ -76,10 +74,12 @@ $primary-color: #0ee0bd;
 
         form input[type=submit]{
           width: 100px;
-          padding: 5px;
+          font-size: 1em;
+          padding: 10px;
           border-radius: 5px;
           background-color: $primary-color;
           color: white;
+          margin-top: 20px;
           &:hover{
             opacity: .7;
             box-shadow: 4px 4px 7px #b8b8b8;

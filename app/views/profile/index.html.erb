@@ -7,6 +7,7 @@
     <div class="typeWrapper">
 
 
+
        <h1><%= @user.name %></h1>
        <%= image_tag 'https://traitify-api.s3.amazonaws.com/badges/' + @user.result.personalities.first.name.downcase + '/flat/large'%>
        <h2> Personality Type </h2>
@@ -14,38 +15,66 @@
        <h4><%= @user.result.personalities.first.score.ceil %></h4>
        <h4><%= @assessment.personality_types.first.personality_type.description %></h4>
 
-       <!-- <h4> Famous person with same personality - </h4> -->
-
        <h2> Personality Trait </h2>
        <h3> <%= @traits.name %>  </h3>
     </div>
 
     <div class="activityWrapper">
+
+      <%= form_tag profile_activities_path(@user) do %>
+
       <h2>Activities for <%= @user.result.personalities.first.name %></h2>
+
         <% @activities.each do |activity| %>
           <% if activity.personality_type == @user.result.personalities.first.name %>
-        <section title=".squaredTwo">
+            <section title=".squaredTwo">
     <!-- .squaredTwo -->
-          <div class="checkContainer">
-            <div class="squaredTwo">
-              <%= check_box_tag activity.id %>
-              <%= label_tag activity.id, "" %>
-            </div>
-            <span class="checkLabel"><%= activity.name %></span>
-          </div>
+              <div class="checkContainer">
+                <div class="squaredTwo">
+                  <label>
+                    <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
+                  </label>
+                </div>
+                <span class="checkLabel"><%= activity.name %></span>
+              </div>
     <!-- end .squaredTwo -->
-      </section>
+            </section>
           <% end %>
+        <% end %>
+      <%= submit_tag :save %>
       <% end %>
     </div>
-  </div>
 
   <div class="matchesWrapper">
     <div class="headline">
-
       <h2> Matches </h2>
     </div>
+          <% if @matches %>
+          <% @matches.each do |match|  %>
+            <div class="matchesInner">
+              <h3><%= match.name %></h3>
+              <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
+              <h3><%= match.result.personalities.first.name %></h3>
+              <img src='<%=path%>'>
+              <p>Personality Trait<p>
+              <h3><%= match.result.traits.first.name %></h3>
+                 <div class="activityList">
+                   <div class="text">
+                    <h3> Activities </h3>
+                    <p> hiking </p>
+                    <p> Cross country skiing </p>
+                    <p> Coffee/Tea </p>
+                    <p> Drinks </p>
+                    <p> Comedy Club </p>
+                    <p> Going to the gym </p>
+                    <img src='<%=path%>'>
+                  </div>
+                 </div>
+            </div>
+          <%end%>
+          <%end%>
 
+<<<<<<< HEAD
       <% @matches.each do |match|  %>
         <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
         <div class="matchesInner">
@@ -56,4 +85,7 @@
         </div>
       <%end%>
   </div>
+=======
+</div>
+>>>>>>> master
 </div>

@@ -47,6 +47,7 @@ def do_assessment(user)
     })
   return user.result.personalities
 end
+<<<<<<< HEAD
 puts Sendbird::UserApi.list.body["users"]
 Sendbird::UserApi.list.body["users"].each do |user|
   if user["nickname"].scan(/[a-zA-Z]*::bot$/)
@@ -60,6 +61,19 @@ Sendbird::UserApi.list.body["users"].each do |user|
   puts user["nickname"]
   puts do_assessment(dbUser)
   end
+=======
+
+50.times do |user|
+  user = User.create({
+    name: Faker::Name.first_name,
+    email: Faker::Internet.email,
+    password: '2222',
+    personality: nil
+  })
+
+puts user.name
+  puts do_assessment(user)
+>>>>>>> master
 end
 
 activities_list = [
@@ -67,7 +81,7 @@ activities_list = [
   {name: 'Camping', personality_type: 'Adventurous'},
   {name: 'Skydiving', personality_type: 'Adventurous'},
   {name: 'Backpacking', personality_type: 'Adventurous'},
-  {name: 'CN Tower - Edge Walk', personality_type: 'Adventurous'},
+  {name: 'Edge Walk', personality_type: 'Adventurous'},
   {name: 'Rafting', personality_type: 'Adventurous'},
   {name: 'Ziplining', personality_type: 'Adventurous'},
   {name: 'Bungy jumping', personality_type: 'Adventurous'},
@@ -75,10 +89,10 @@ activities_list = [
   {name: 'Pair-programming', personality_type: 'Adventurous'},
   {name: 'Improv Class', personality_type: 'Charismatic'},
   {name: 'Stand-up Comedy', personality_type: 'Charismatic'},
-  {name: 'Going out for drinks', personality_type: 'Charismatic'},
+  {name: 'Drinks', personality_type: 'Charismatic'},
   {name: 'Attending a party', personality_type: 'Charismatic'},
-  {name: 'Having a deep conversation', personality_type: 'Charismatic'},
-  {name: 'Team Sports (eg. Hockey, Basketball)', personality_type: 'Charismatic'},
+  {name: 'Coffee/Tea', personality_type: 'Charismatic'},
+  {name: 'Team Sports', personality_type: 'Charismatic'},
   {name: 'Hosting a BBQ', personality_type: 'Charismatic'},
   {name: 'Ballroom Dancing', personality_type: 'Charismatic'},
   {name: 'Going to concerts', personality_type: 'Charismatic'},
@@ -86,9 +100,9 @@ activities_list = [
   {name: 'Going to a spa', personality_type: 'Mellow'},
   {name: 'Going to the beach', personality_type: 'Mellow'},
   {name: 'Board Games', personality_type: 'Mellow'},
-  {name: 'Ballroom Dancing', personality_type: 'Mellow'},
-  {name: 'Chatting over a cup of tea', personality_type: 'Mellow'},
-  {name: 'Having a deep conversation', personality_type: 'Mellow'},
+  {name: 'Dance Class', personality_type: 'Mellow'},
+  {name: 'Coffee/Tea', personality_type: 'Mellow'},
+  {name: 'Drinks', personality_type: 'Mellow'},
   {name: 'Walking in a park', personality_type: 'Mellow'},
   {name: 'Paint night', personality_type: 'Mellow'},
   {name: 'Jogging', personality_type: 'Mellow'},
@@ -97,36 +111,36 @@ activities_list = [
   {name: 'Croassword puzzles', personality_type: 'Rational'},
   {name: 'Card Games (poker)', personality_type: 'Rational'},
   {name: 'Bookclub', personality_type: 'Rational'},
-  {name: 'Going to a movie theatre', personality_type: 'Rational'},
-  {name: 'Having a deep conversation', personality_type: 'Rational'},
-  {name: 'Watching Documentaries', personality_type: 'Rational'},
+  {name: 'Movies', personality_type: 'Rational'},
+  {name: 'Coffee/Tea', personality_type: 'Rational'},
+  {name: 'Watching Docs', personality_type: 'Rational'},
   {name: 'Chess', personality_type: 'Rational'},
   {name: 'Jogging', personality_type: 'Rational'},
   {name: 'Pair-programming', personality_type: 'Rational'},
   {name: 'Going to the gym', personality_type: 'Reliable'},
-  {name: 'Cleaning the surroundings (home, car)', personality_type: 'Reliable'},
-  {name: 'Long-distance running', personality_type: 'Reliable'},
+  {name: 'Cleaning/Organizing', personality_type: 'Reliable'},
+  {name: 'Distance running', personality_type: 'Reliable'},
   {name: 'Going to concerts', personality_type: 'Reliable'},
   {name: 'Bookclub', personality_type: 'Reliable'},
   {name: 'Woodwork workshop', personality_type: 'Reliable'},
-  {name: 'Racquet sports (Tennis, Squash, Badminton)', personality_type: 'Reliable'},
-  {name: 'Team sports (eg. Hockey, Basketball)', personality_type: 'Reliable'},
+  {name: 'Racquet sports', personality_type: 'Reliable'},
+  {name: 'Team sports', personality_type: 'Reliable'},
   {name: 'Cooking class', personality_type: 'Reliable'},
   {name: 'Pair-programming', personality_type: 'Reliable'},
   {name: 'Going to concerts', personality_type: 'Social'},
-  {name: 'Team Sports (eg. Hockey, Basketball)', personality_type: 'Social'},
+  {name: 'Team Sports', personality_type: 'Social'},
   {name: 'Going to the beach', personality_type: 'Social'},
   {name: 'Live sport events', personality_type: 'Social'},
   {name: 'Board Games', personality_type: 'Social'},
   {name: 'Shopping', personality_type: 'Social'},
   {name: 'Stand-up comedy', personality_type: 'Social'},
-  {name: 'Hosting a dinner party', personality_type: 'Social'},
-  {name: 'Having casual conversations with many people', personality_type: 'Social'},
+  {name: 'Hosting a party', personality_type: 'Social'},
+  {name: 'Toastmasters', personality_type: 'Social'},
   {name: 'Pair-programming', personality_type: 'Social'},
-  {name: 'Having a deep conversation', personality_type: 'Thoughtful'},
+  {name: 'Coffee/Tea', personality_type: 'Thoughtful'},
   {name: 'Board Games', personality_type: 'Thoughtful'},
   {name: 'Going to a spa', personality_type: 'Thoughtful'},
-  {name: 'Volunteer Activities', personality_type: 'Thoughtful'},
+  {name: 'Volunteer', personality_type: 'Thoughtful'},
   {name: 'Bookclub', personality_type: 'Thoughtful'},
   {name: 'Meditation retreat', personality_type: 'Thoughtful'},
   {name: 'Ballroom Dancing', personality_type: 'Thoughtful'},

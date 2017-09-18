@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170914160255) do
+ActiveRecord::Schema.define(version: 20170915010043) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,6 +22,11 @@ ActiveRecord::Schema.define(version: 20170914160255) do
     t.string   "personality_type"
     t.integer  "users_id"
     t.index ["users_id"], name: "index_activities_on_users_id", using: :btree
+  end
+
+  create_table "activities_users", id: false, force: :cascade do |t|
+    t.integer "user_id",     null: false
+    t.integer "activity_id", null: false
   end
 
   create_table "matches", force: :cascade do |t|
@@ -64,12 +69,12 @@ ActiveRecord::Schema.define(version: 20170914160255) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "personality"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "name"
   end
 
   add_foreign_key "activities", "users", column: "users_id"

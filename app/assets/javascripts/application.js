@@ -14,4 +14,5 @@
 //= require cable
 //= require jquery_ujs
 //= require turbolinks
+//= require sendbird.min
 //= require_tree .
