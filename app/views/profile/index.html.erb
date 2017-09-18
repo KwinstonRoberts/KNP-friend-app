@@ -21,7 +21,7 @@
 
     <div class="activityWrapper">
 
-      <%= form_tag profile_activities_path(@user) do %>
+      <%= form_tag profile_index_path(@user) do %>
 
       <h2>Activities for <%= @user.result.personalities.first.name %></h2>
 
@@ -72,20 +72,8 @@
                  </div>
             </div>
           <%end%>
-          <%end%>
-
-<<<<<<< HEAD
-      <% @matches.each do |match|  %>
-        <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
-        <div class="matchesInner">
-          <h3><%= match.name %></h3>
-          <h3><%= match.result.personalities.first.name %></h3>
-          <img src='<%=path%>'>
-          <%= link_to 'Message', chat_path(match.id)%>
-        </div>
-      <%end%>
+        <%end%>
   </div>
-=======
 </div>
->>>>>>> master
+
 </div>
