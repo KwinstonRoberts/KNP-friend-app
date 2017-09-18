@@ -1,4 +1,5 @@
 class ProfileController < ApplicationController
+  
   def index
     @user = User.includes(:result).where('users.id = ?', session[:user_id]).first
     if @user.result
@@ -9,8 +10,7 @@ class ProfileController < ApplicationController
         public_key: ENV["PUBLIC_KEY"]
       })
 
-
-      @assessment = @traitify.find_results(@user.result.assessment_id) 
+      @assessment = @traitify.find_results(@user.result.assessment_id)
       @traits = @user.result.traits.first
       @matches = get_matches
       @activities = Activity.all()

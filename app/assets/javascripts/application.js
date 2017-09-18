@@ -11,9 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require cable
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-$(document).ready(function() {
-   const instance = Layzr()
-});

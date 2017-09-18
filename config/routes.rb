@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :login, only:[:index,:create,:destroy]
   resources :register, only:[:index,:create]
   resources :profile, except:[:destroy,:new,:edit]
+  resources :chat
+  resources :message
+  mount ActionCable.server => '/cable'
 
 
 post '/user/personality' => 'users#personality'

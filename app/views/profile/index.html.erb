@@ -52,7 +52,7 @@
           <h3><%= match.name %></h3>
           <h3><%= match.result.personalities.first.name %></h3>
           <img src='<%=path%>'>
-          <p></p>
+          <%= link_to 'Message', chat_path(match.id)%>
         </div>
       <%end%>
   </div>

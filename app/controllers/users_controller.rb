@@ -22,6 +22,12 @@ class UsersController < ApplicationController
        score: ptype.score,
        })
      end
+     puts Sendbird::UserApi.create({
+       user_id: user.id,
+       nickname: user.name,
+       profile_url: user.result.image,
+       issue_assess_token:false
+     }).error_message
      Trait.create({
       result_id: result.id,
       name: traitify.raw_personality_traits(params[:id]).first.personality_trait.name
