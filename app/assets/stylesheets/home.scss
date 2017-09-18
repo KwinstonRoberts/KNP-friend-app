@@ -273,6 +273,24 @@ footer{
   }
 
 }
+.loader {
+    border: 16px solid #4e4e4e;
+    border-top: 16px solid $primary-color;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    visibility: hidden;
+}
+.visible{
+  visibility: visible;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 @media only screen and (max-width: 1335px){
     .wrapper .box{
       margin: 20px 5px 5px;

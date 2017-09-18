@@ -55,8 +55,8 @@
           <% @matches.each do |match|  %>
             <div class="matchesInner">
               <h3 class="matchName"><%= match.name %></h3>
-              <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
-              <h4><%= match.result.personalities.first.name %></h4>
+              <% path = asset_path('' + match.result.personalities.order(score: :desc).first.name.downcase + '-small.png') %>
+              <h4><%= match.result.personalities.order(score: :desc).first.name %></h4>
               <img src='<%=path%>'>
               <h3>Personality Trait<h3>
               <h4><%= match.result.traits.first.name %></h4>
