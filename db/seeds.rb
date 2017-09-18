@@ -47,7 +47,6 @@ def do_assessment(user)
     })
   return user.result.personalities
 end
-<<<<<<< HEAD
 puts Sendbird::UserApi.list.body["users"]
 Sendbird::UserApi.list.body["users"].each do |user|
   if user["nickname"].scan(/[a-zA-Z]*::bot$/)
@@ -61,19 +60,6 @@ Sendbird::UserApi.list.body["users"].each do |user|
   puts user["nickname"]
   puts do_assessment(dbUser)
   end
-=======
-
-50.times do |user|
-  user = User.create({
-    name: Faker::Name.first_name,
-    email: Faker::Internet.email,
-    password: '2222',
-    personality: nil
-  })
-
-puts user.name
-  puts do_assessment(user)
->>>>>>> master
 end
 
 activities_list = [

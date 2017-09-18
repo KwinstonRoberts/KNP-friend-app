@@ -1,5 +1,4 @@
 class ChatController < ApplicationController
-<<<<<<< HEAD
 
   def show
     @channel = Sendbird::OpenChannelApi.create({channel_url: Faker::Number.number(5)})
@@ -16,8 +15,5 @@ class ChatController < ApplicationController
       user_id: session[:user_id],
       message: body
     }).body["message"]
-=======
-  def index
->>>>>>> master
   end
 end
