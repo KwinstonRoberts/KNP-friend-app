@@ -148,6 +148,10 @@ $thoughtful: #9788f2;
     &:hover{
       box-shadow: none;
     }
+
+    .matchName{
+      font-size: 1.4em;
+    }
   }
 }
 /******************************
@@ -155,7 +159,7 @@ STYLES FOR COLOR CHANGES
 *******************************/
 
 .mellowType{
-  h1, h2{
+  h1, h2, .message{
     color: $mellow;
   }
   .squaredTwo {
@@ -179,7 +183,7 @@ STYLES FOR COLOR CHANGES
 }
 
 .thoughtfulType{
-  h1, h2{
+  h1, h2, .message{
     color: $thoughtful;
   }
   .squaredTwo {
@@ -203,7 +207,7 @@ STYLES FOR COLOR CHANGES
 }
 
 .adventureType{
-  h1, h2{
+  h1, h2, .message{
     color: $adventure;
   }
   .squaredTwo {
@@ -338,7 +342,6 @@ HOVER EFFECTS ON MATCHES
   left: 0;
   right: 0;
   background-image: linear-gradient(#4e4e4e, #4e4e4e);
-
   overflow: hidden;
   border-radius: 20px;
   width: 100%;
@@ -382,7 +385,40 @@ HOVER EFFECTS ON MATCHES
     }
 
   }
-
+  .activityWrapper{
+    width: 60%;
+    margin: 0 auto;
+  }
+  .matchesWrapper{
+    width: 90%;
+  }
 }
+@media only screen and (max-width: 600px){
+  .matchesWrapper{
+    flex-direction: column;
+    justify-content: center;
+
+    .matchesInner{
+      flex: 1 90%;
+      width: 100%;
+      margin: 10px auto;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
