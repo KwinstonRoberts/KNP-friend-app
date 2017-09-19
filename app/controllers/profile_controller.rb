@@ -26,7 +26,7 @@ class ProfileController < ApplicationController
       res.result.personalities.each do |r|
         if(r.name === get_ptype(@user))
           avg = (r.score + @user.result.personalities.first.score)/2
-          if avg >= 65
+          if avg >= 70
             puts avg
             return true
           else
