@@ -15,6 +15,8 @@
        <h4><%= @user.result.personalities.first.score.ceil %></h4>
        <h4><%= @assessment.personality_types.first.personality_type.description %></h4>
 
+       <h4> Famous person with same personality - <%= @assessment.personality_types.first.personality_type.famous_people.first.name %></h4>
+
        <h2> Personality Trait </h2>
        <h3> <%= @traits.name %>  </h3>
     </div>
@@ -27,24 +29,28 @@
 
         <% @activities.each do |activity| %>
           <% if activity.personality_type == @user.result.personalities.first.name %>
-            <section title=".squaredTwo">
-    <!-- .squaredTwo -->
+
+
               <div class="checkContainer">
-                <div class="squaredTwo">
+                <!-- <div class="squaredTwo"> -->
 
 
-                   <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
-                   <%= label_tag %>
+                <label class="checkbox">
+                   <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}", false, class: 'checkbox_input' %>
+                   <div class="checkbox_box"></div>
+                   <%= activity.name %>
+                 </label>
 
                 </div>
-                <span class="checkLabel"><%= activity.name %></span>
-              </div>
-    <!-- end .squaredTwo -->
-            </section>
+
+
+
+
           <% end %>
         <% end %>
       <%= submit_tag :save %>
       <% end %>
+      </div>
     </div>
 
   <div class="matchesWrapper">
