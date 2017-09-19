@@ -47,6 +47,8 @@ def do_assessment(user)
     result_id: result.id,
     name: trait.personality_trait.name
     })
+  user.personality = r.personality_types.first.personality_type.name
+  user.save
   return user.result.personalities
 end
 
@@ -64,7 +66,7 @@ end
 
 activities_list = [
   {name: 'Hiking', personality_type: 'Adventurous'},
-  {name: 'Camping', personality_type: 'Adventurous'},
+  {name: 'Camping', personality_tpe: 'Adventurous'},
   {name: 'Skydiving', personality_type: 'Adventurous'},
   {name: 'Backpacking', personality_type: 'Adventurous'},
   {name: 'Edge Walk', personality_type: 'Adventurous'},
@@ -142,4 +144,20 @@ activities_list.each do |activity|
   else
     puts act.errors.message
   end
+end
+
+users = User.all
+
+
+# users.each do |user|
+#   activities = Activity.all.sample(6)
+#   if !user.activities
+#     user.activities = activities
+
+#   end
+# end
+
+users.each do |user|
+  user.activities = Activity.where(personality_type: user.personality).sample(6)
+  user.save
 end

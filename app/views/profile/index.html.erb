@@ -61,12 +61,16 @@
                  <div class="activityList">
                    <div class="text">
                     <h3> Activities </h3>
-                    <p> hiking </p>
+                    <% match.activities.each do |act| %>
+                     <p> <%= act.name %> </p>
+                    <%end%>
+                  <!--   <p> hiking </p>
                     <p> Cross country skiing </p>
                     <p> Coffee/Tea </p>
                     <p> Drinks </p>
                     <p> Comedy Club </p>
-                    <p> Going to the gym </p>
+                    <p> Going to the gym </p> -->
+
                     <img src='<%=path%>'>
                   </div>
                  </div>
