@@ -38,7 +38,7 @@ class ProfileController < ApplicationController
   end
   def get_matches
     matches = []
-    User.includes(:result).all().each do |match|
+    User.all().each do |match|
       matches.push(match)
     end
     return matches
