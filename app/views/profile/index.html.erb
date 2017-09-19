@@ -59,11 +59,11 @@
     </div>
           <% if @matches %>
           <% User.all().each do |match|  %>
-            <%puts match %> 
+            <%puts match %>
             <div class="matchesInner">
               <h3 class="matchName"><%= match.name %></h3>
               <h4><%#= match.result.personalities.first.name %></h4>
-              <img src='<%#=path%>'>
+              
               <h3>Personality Trait<h3>
               <h4><%#= match.result.traits.first.name %></h4>
                  <div class="activityList">
