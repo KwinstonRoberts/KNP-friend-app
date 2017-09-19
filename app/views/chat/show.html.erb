@@ -1,12 +1,31 @@
-<h1>Chat</h1>
-<section id='messages'></section>
 
-<textarea name='message'></textarea>
-<button>Send</button>
-<script>
-  $('button').on('click',function(e){
-    e.preventDefault()
-    $('#messages').append($('textarea').val())
-    $('textarea').val('')
-  })
-</script>
+<div class="loginContainer chatWrap">
+  <header>
+    <div class="circles">
+        <span class="circle"></span>
+        <span class="circle"></span>
+        <span class="circle"></span>
+      </div>
+      <%= image_tag('chat.png') %>
+  </header>
+    <h2>Chat</h2>
+  <div class="messageArea loginForm">
+  <section id='messages'></section>
+  <div class="userInput">
+    <textarea name='message'></textarea>
+  </div>
+  <div class="chatButton">
+    <button>Send</button>
+  </div>
+  </div>
+</div>
+
+
+
+  <script>
+    $('button').on('click',function(e){
+      e.preventDefault()
+      $('#messages').append($('textarea').val())
+      $('textarea').val('')
+    })
+  </script>

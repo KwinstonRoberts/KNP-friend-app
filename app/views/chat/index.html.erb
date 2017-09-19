@@ -1,27 +1,16 @@
-<h1>Chat</h1>
+  <h1>Chat</h1>
 
-<div id='messages'>
+  <div id='messages'>
 
-</div>
-<textarea name='message'></textarea>
-<button id='send'>Send</button>
-<ul>
-  <% @personalities.each do |personality| %>
-    <li><button name='<%=personality%>'><%=personality%></button></li>
-  <%end%>
-</ul>
-<script>
-$(document).ready(function(){
-  MakeChannel('<%=@userPtype.name%>','<%=session[:user_id]%>')
-  $('#send').on('click',function(e){
-    e.preventDefault()
-    App.chat.speak($('textarea').val())
-    $('textarea').val('')
-  })
-  $('li>button').on('click',function(e){
-    e.preventDefault()
-    MakeChannel(e.target.name,'<%=session[:user_id]%>')
-    $('textarea').val('')
-  })
-});
-</script>
+  </div>
+  <div class="userInput">
+    <textarea name='message'></textarea>
+    <button id='send'>Send</button>
+  </div>
+  <ul>
+    <% @personalities.each do |personality| %>
+      <li><button name='<%=personality%>'><%=personality%></button></li>
+    <%end%>
+  </ul>
+
+
