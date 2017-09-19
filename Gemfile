@@ -10,7 +10,6 @@ end
 gem 'rails', '~> 5.0.5'
 # Use sqlite3 as the database for Active Record
 
-
 gem 'sqlite3'
 
 gem 'pg'
@@ -32,9 +31,10 @@ gem 'jquery-rails'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 # Use Redis adapter to run Action Cable in production
-# gem 'redis', '~> 3.0'
+gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
+gem 'sendbird'
 
 gem "traitify"
 # Use Capistrano for deployment
@@ -53,7 +53,6 @@ group :development, :test do
 
   gem 'dotenv-rails'
   gem 'pry-byebug'
-
 end
 
 group :development do
@@ -69,5 +68,3 @@ end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 gem 'faker'
-gem 'layzr-rails'
-gem 'render-later'

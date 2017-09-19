@@ -1,0 +1,12 @@
+<h1>Chat</h1>
+<section id='messages'></section>
+
+<textarea name='message'></textarea>
+<button>Send</button>
+<script>
+  $('button').on('click',function(e){
+    e.preventDefault()
+    $('#messages').append($('textarea').val())
+    $('textarea').val('')
+  })
+</script>
