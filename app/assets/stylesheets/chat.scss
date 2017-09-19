@@ -1,3 +1,37 @@
 // Place all the styles related to the chat controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+$primary-color: #43edd8;
+$dark-grey: #4e4e4e;
+
+.chatWrap{
+
+   h2{
+    margin-bottom: 0;
+  }
+}
+section{
+  margin-bottom: 8px;
+}
+.messageArea{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.userInput textarea{
+  width: 400px;
+}
+button {
+  margin-top: 10px;
+  width: 60px;
+  height: 30px;
+  border-radius: 8px;
+  letter-spacing: .1em;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+}
+
+button:hover{
+  opacity: .7;
+}
