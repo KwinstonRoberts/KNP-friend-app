@@ -78,12 +78,12 @@ ActiveRecord::Schema.define(version: 20170919144839) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "personality"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "name"
   end
 
   add_foreign_key "activities", "users", column: "users_id"
