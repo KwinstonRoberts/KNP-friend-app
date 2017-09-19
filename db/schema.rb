@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170915010043) do
+ActiveRecord::Schema.define(version: 20170919144839) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 20170915010043) do
     t.string   "match_name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "messages", force: :cascade do |t|
+    t.string   "body"
+    t.integer  "user_id"
+    t.string   "channel"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
   create_table "personalities", force: :cascade do |t|
@@ -69,14 +78,15 @@ ActiveRecord::Schema.define(version: 20170915010043) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "personality"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
-    t.string   "name"
   end
 
   add_foreign_key "activities", "users", column: "users_id"
+  add_foreign_key "messages", "users"
   add_foreign_key "results", "users"
 end

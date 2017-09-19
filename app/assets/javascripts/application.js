@@ -12,9 +12,6 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require SendBird.min
 //= require chat
 //= require_tree .
-
-// $(document).ready(function() {
-//    const instance = Layzr()
-// });

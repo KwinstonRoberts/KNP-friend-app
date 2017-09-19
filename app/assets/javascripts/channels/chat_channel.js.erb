@@ -1,0 +1,16 @@
+MakeChannel = function(ptype,user){
+  App.chat = App.cable.subscriptions.create({channel: "ChatChannel",user:user, personality: ptype}, {
+    connected: function () {
+
+    },
+    disconnected: function() {
+
+    },
+    received: function(data) {
+      $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30>' + data['message'] + '</p></div>')
+    },
+    speak: function(data) {
+      this.perform('speak', {message: data, personality: ptype});
+    }
+  });
+}
