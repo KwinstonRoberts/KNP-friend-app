@@ -26,14 +26,27 @@ $thoughtful: #9788f2;
   flex-wrap: wrap;
   justify-content: space-around;
 
-  .typeWrapper {
-    border-radius: 10px;
+  .typeWrapper, .activityWrapper {
     padding: 10px;
   }
 
   .activityWrapper{
-    border-radius: 10px;
-    padding: 10px 40px 10px;
+
+    input[type="submit"]{
+      background-color: #4e4e4e;
+      color: white;
+      width: 60px;
+      height: 30px;
+      margin-left: 78%;
+      margin-top: 10px;
+      border-radius: 8px;
+      border: none;
+      font-size: .9em;
+
+    &:hover{
+      opacity: .7;
+    }
+  }
 
   }
   .typeWrapper{
@@ -75,7 +88,7 @@ $thoughtful: #9788f2;
     left: 4px;
     top: 4px;
     background: linear-gradient(top, #222 0%, #45484d 100%);
-    &:after {
+    /*&:after {
       content: '';
       width: 9px;
       height: 5px;
@@ -91,7 +104,7 @@ $thoughtful: #9788f2;
     }
     &:hover::after {
       opacity: 0.3;
-    }
+    } */
   }
   input[type=checkbox] {
     visibility: hidden;
@@ -99,6 +112,12 @@ $thoughtful: #9788f2;
       opacity: 1;
     }
   }
+}
+
+.checkedBox label{
+    background-color: #4e4e4e;
+    opacity: .7;
+
 }
 
 .matchesWrapper{
@@ -111,6 +130,11 @@ $thoughtful: #9788f2;
   .headline{
     flex: 1 100%;
     border-bottom: 1px solid $activeColor;
+
+    h2{
+      margin-bottom: 0;
+      font-size: 1.8em;
+    }
   }
   .matchesInner{
     margin: 30px;
@@ -124,6 +148,10 @@ $thoughtful: #9788f2;
     &:hover{
       box-shadow: none;
     }
+
+    .matchName{
+      font-size: 1.4em;
+    }
   }
 }
 /******************************
@@ -131,7 +159,7 @@ STYLES FOR COLOR CHANGES
 *******************************/
 
 .mellowType{
-  h1, h2{
+  h1, h2, .message{
     color: $mellow;
   }
   .squaredTwo {
@@ -149,10 +177,13 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $mellow;
+    }
 }
 
 .thoughtfulType{
-  h1, h2{
+  h1, h2, .message{
     color: $thoughtful;
   }
   .squaredTwo {
@@ -170,10 +201,13 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $thoughtful;
+    }
 }
 
 .adventureType{
-  h1, h2{
+  h1, h2, .message{
     color: $adventure;
   }
   .squaredTwo {
@@ -191,6 +225,9 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $adventure;
+    }
 }
 
 .charismaticType{
@@ -212,6 +249,9 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $charismatic;
+    }
 }
 
 .socialType{
@@ -233,6 +273,9 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $social;
+    }
 }
 
 .reliableType{
@@ -254,6 +297,9 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $reliable;
+    }
 }
 
 .rationalType{
@@ -275,6 +321,9 @@ STYLES FOR COLOR CHANGES
       }
     }
   }
+  .activityWrapper input[type="submit"]{
+      background-color: $rational;
+    }
 }
 
 /*********************************
@@ -293,7 +342,6 @@ HOVER EFFECTS ON MATCHES
   left: 0;
   right: 0;
   background-image: linear-gradient(#4e4e4e, #4e4e4e);
-
   overflow: hidden;
   border-radius: 20px;
   width: 100%;
@@ -337,7 +385,40 @@ HOVER EFFECTS ON MATCHES
     }
 
   }
-
+  .activityWrapper{
+    width: 60%;
+    margin: 0 auto;
+  }
+  .matchesWrapper{
+    width: 90%;
+  }
 }
+@media only screen and (max-width: 600px){
+  .matchesWrapper{
+    flex-direction: column;
+    justify-content: center;
+
+    .matchesInner{
+      flex: 1 90%;
+      width: 100%;
+      margin: 10px auto;
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 

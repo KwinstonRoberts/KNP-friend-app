@@ -1,4 +1,7 @@
 <div class='assessment'></div>
+
+<div class='loader'></div>
+
 <script>
   Traitify.setPublicKey('<%=ENV["PUBLIC_KEY"]%>');
   Traitify.setHost("https://api-sandbox.traitify.com");
@@ -10,10 +13,19 @@
     '<%= User.find(session[:user_id]).email %>'
     '<%= @assessment.id%>'
     var path = "<%= user_personality_path%>"
-  $.ajax({
-    method: "POST",
-    url: path,
-    data: {id: '<%= @assessment.id%>'}
-  })})
+
+    // Show a message explaing that you're saving the assessment.
+    $('.loader').addClass('visible');
+
+    $.ajax({
+      method: "POST",
+      url: path,
+      data: {id: '<%= @assessment.id%>'},
+      success: function() {
+             // when assessment is saved, redirect to profile page.
+        document.location = '/profile';
+      }
+    })
+  })
 </script>
 

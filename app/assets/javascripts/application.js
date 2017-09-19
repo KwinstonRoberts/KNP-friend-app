@@ -12,9 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
 //= require chat
 //= require_tree .
-$(document).ready(function() {
-   const instance = Layzr()
-});
+
+// $(document).ready(function() {
+//    const instance = Layzr()
+// });
