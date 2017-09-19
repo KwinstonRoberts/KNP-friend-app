@@ -19,7 +19,8 @@
        <h3> <%= @traits.name %>  </h3>
     </div>
 
-    <div class="activityWrapper">
+    <div class="activityWrapper">Attending a party
+
 
       <%= form_tag profile_activities_path(@user) do %>
 
@@ -32,9 +33,9 @@
               <div class="checkContainer">
                 <div class="squaredTwo">
 
-
+                   <label>
                    <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
-                   <%= label_tag %>
+                   </label>
 
                 </div>
                 <span class="checkLabel"><%= activity.name %></span>
