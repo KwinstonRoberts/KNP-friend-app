@@ -10,6 +10,7 @@ Rails.application.configure do
   # Rake tasks automatically ignore this option for performance.
   config.eager_load = true
 
+  config.action_cable.url = ENV['REDIS_URL']
   # Full error reports are disabled and caching is turned on.
   config.consider_all_requests_local       = false
   config.action_controller.perform_caching = true
@@ -85,7 +86,3 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 end
-<<<<<<< HEAD
-=======
-
->>>>>>> f7f2ed5fb02bfa290eca5be594d173cbb08b3f70

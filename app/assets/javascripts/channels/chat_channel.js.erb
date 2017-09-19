@@ -1,13 +1,21 @@
 MakeChannel = function(ptype,user){
+  if(App.chat) App.cable.subscriptions.remove(App.chat)
   App.chat = App.cable.subscriptions.create({channel: "ChatChannel",user:user, personality: ptype}, {
     connected: function () {
-
+      $('#messages').html('')
+      this.perform('getChannel',{ptype: ptype})
     },
     disconnected: function() {
-
     },
     received: function(data) {
-      $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30>' + data['message'] + '</p></div>')
+      if(data['messages']) {
+        for(x in data['messages']){
+          console.log(x)
+          $('#messages').append('<div><p><img src="' +  data['messages'][x].pImage + '" width=30>' + '<b> ' + data['messages'][x].name + ' </b>' + data['messages'][x].body + '</p></div>')
+        }
+      }else{
+          $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30>' + data['message'] + '</p></div>')
+        }
     },
     speak: function(data) {
       this.perform('speak', {message: data, personality: ptype});
