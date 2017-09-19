@@ -39,11 +39,6 @@ class ProfileController < ApplicationController
   def get_matches
     matches = []
     User.includes(result: [:personalities,:traits]).all().each do |match|
-      if match.result && match.id != session[:user_id]
-        if compare_ptype(match) === true
-          matches.push(match)
-        end
-      end
     end
     return matches
   end
