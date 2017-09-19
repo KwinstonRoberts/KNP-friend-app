@@ -25,24 +25,22 @@
 
       <h2>Activities for <%= @user.result.personalities.first.name %></h2>
 
-        <% @activities.each do |activity| %>
-          <% if activity.personality_type == @user.result.personalities.first.name %>
-            <section title=".squaredTwo">
-    <!-- .squaredTwo -->
-              <div class="checkContainer">
-                <div class="squaredTwo">
+      <% @activities.each do |activity| %>
+        <% if activity.personality_type == @user.result.personalities.first.name %>
 
+            <div class="checkContainer">
+              <!-- <div class="squaredTwo"> -->
 
-                   <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
-                   <%= label_tag %>
+              <label class="checkbox">
+                 <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}", false, class: 'checkbox_input' %>
+                 <div class="checkbox_box"></div>
+                 <%= activity.name %>
+               </label>
 
-                </div>
-                <span class="checkLabel"><%= activity.name %></span>
               </div>
-    <!-- end .squaredTwo -->
-            </section>
-          <% end %>
+
         <% end %>
+      <% end %>
       <%= submit_tag :save %>
       <% end %>
     </div>
