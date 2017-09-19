@@ -58,10 +58,10 @@
       <h2> Matches </h2>
     </div>
           <% if @matches %>
-          <% @matches.each do |match|  %>
+          <% User.all().each do |match|  %>
             <div class="matchesInner">
               <h3 class="matchName"><%= match.name %></h3>
-              <% path = asset_path('' + match.result.personalities.order(score: :desc).first.name.downcase + '-small.png') %>
+              <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
               <h4><%#= match.result.personalities.first.name %></h4>
               <img src='<%=path%>'>
               <h3>Personality Trait<h3>

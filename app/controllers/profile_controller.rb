@@ -8,7 +8,6 @@ class ProfileController < ApplicationController
       @traits = @user.result.traits.first
       @matches = User.all()
       @activities = Activity.all()
-      @user = User.find(session[:user_id])
     else
       redirect_to test_index_path
     end
