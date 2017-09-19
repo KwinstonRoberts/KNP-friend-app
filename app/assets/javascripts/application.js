@@ -11,10 +11,6 @@
 // about supported directives.
 //
 //= require jquery
+//= require cable
 //= require jquery_ujs
-//= require chat
 //= require_tree .
-
-// $(document).ready(function() {
-//    const instance = Layzr()
-// });

@@ -1,10 +1,6 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 
-User.destroy_all
-Activity.destroy_all
-Personality.destroy_all
-
 
 user = User.create({
   name: 'kyle roberts',
@@ -41,8 +37,10 @@ def do_assessment(user)
       name: ptype.personality_type.name,
       score: ptype.score
     })
-
   end
+  puts Sendbird::UserApi.update(user.id,{
+    profile_url: user.result.image,
+  }).error_message
   Trait.create({
     result_id: result.id,
     name: trait.personality_trait.name
@@ -51,17 +49,19 @@ def do_assessment(user)
   user.save
   return user.result.personalities
 end
-
-50.times do |user|
-  user = User.create({
-    name: Faker::Name.first_name,
-    email: Faker::Internet.email,
-    password: '2222',
-    personality: nil
-  })
-
-puts user.name
-  puts do_assessment(user)
+puts Sendbird::UserApi.list.body["users"]
+Sendbird::UserApi.list.body["users"].each do |user|
+  if user["nickname"].scan(/[a-zA-Z]*::bot$/)
+    dbUser = User.create({
+      id: user["user_id"],
+      name: user["nickname"],
+      email: Faker::Internet.email,
+      password: '2222',
+      personality: nil
+    })
+  puts user["nickname"]
+  puts do_assessment(dbUser)
+  end
 end
 
 activities_list = [

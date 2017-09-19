@@ -22,7 +22,7 @@
     <div class="activityWrapper">Attending a party
 
 
-      <%= form_tag profile_activities_path(@user) do %>
+      <%= form_tag profile_index_path(@user) do %>
 
       <h2>Activities for <%= @user.result.personalities.first.name %></h2>
 
@@ -75,12 +75,13 @@
                     <p> Going to the gym </p> -->
 
                     <img src='<%=path%>'>
-                    <p class="message"> Message <%= match.name %> </p>
+                    <p class="message"><%=link_to 'Message ' + match.name, chat_path(match.id) %> </p>
                   </div>
                  </div>
             </div>
           <%end%>
-          <%end%>
-
+        <%end%>
+  </div>
 </div>
+
 </div>
