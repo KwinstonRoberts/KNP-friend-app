@@ -5,6 +5,7 @@ class MessageBroadcastJob < ApplicationJob
     ActionCable.server.broadcast 'chat_channel_' + message.channel,
       message: message.body,
       user: message.user_id,
-      ptype: User.find(message.user_id).result.image
+      ptype: User.find(message.user_id).result.image,
+      name:  User.find(message.user_id).name
   end
 end

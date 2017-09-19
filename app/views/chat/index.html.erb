@@ -1,14 +1,9 @@
 <h1>Chat</h1>
-<% if @messages %>
+
 <div id='messages'>
-  <% @messages.each do |message| %>
-    <div style='float:<%=if session[:user_id]===message.user_id then 'right' else 'left' end%>'>
-      <p><%= image_tag User.find(message.user_id).result.image, width:'30' %><%= message.body %></p>
-    </div>
-    <hr style='clear:both'/>
-  <%end%>
+
 </div>
-<%end%><textarea name='message'></textarea>
+<textarea name='message'></textarea>
 <button id='send'>Send</button>
 <ul>
   <% @personalities.each do |personality| %>
