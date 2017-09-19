@@ -31,9 +31,11 @@
     <!-- .squaredTwo -->
               <div class="checkContainer">
                 <div class="squaredTwo">
-                  <label>
-                    <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
-                  </label>
+
+
+                   <%= check_box_tag "activity[#{activity.name}]", "#{activity.id}" %>
+                   <%= label_tag %>
+
                 </div>
                 <span class="checkLabel"><%= activity.name %></span>
               </div>
@@ -52,12 +54,12 @@
           <% if @matches %>
           <% @matches.each do |match|  %>
             <div class="matchesInner">
-              <h3><%= match.name %></h3>
-              <% path = asset_path('' + match.result.personalities.first.name.downcase + '-small.png') %>
-              <h3><%= match.result.personalities.first.name %></h3>
+              <h3 class="matchName"><%= match.name %></h3>
+              <% path = asset_path('' + match.result.personalities.order(score: :desc).first.name.downcase + '-small.png') %>
+              <h4><%= match.result.personalities.order(score: :desc).first.name %></h4>
               <img src='<%=path%>'>
-              <p>Personality Trait<p>
-              <h3><%= match.result.traits.first.name %></h3>
+              <h3>Personality Trait<h3>
+              <h4><%= match.result.traits.first.name %></h4>
                  <div class="activityList">
                    <div class="text">
                     <h3> Activities </h3>
@@ -68,6 +70,7 @@
                     <p> Comedy Club </p>
                     <p> Going to the gym </p>
                     <img src='<%=path%>'>
+                    <p class="message"><%=link_to 'Message ' + match.name, chat_path(match.id) %> </p>
                   </div>
                  </div>
             </div>

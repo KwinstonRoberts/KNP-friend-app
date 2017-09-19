@@ -1,0 +1,8 @@
+<% if @messages %>
+<div id='messages'>
+  <% @messages.each do |message| %>
+    <%= img_tag User.find(message.user_id).result.image %>
+    <p><%= message.body %></p>
+  <%end%>
+</div>
+<%end%>
