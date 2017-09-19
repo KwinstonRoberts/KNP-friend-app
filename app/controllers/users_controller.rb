@@ -4,7 +4,6 @@ class UsersController < ApplicationController
     traitify = Traitify.new
     user = User.find(session[:user_id])
     r = traitify.find_results(params[:id])
-    top3 = r.personality_types.slice(0,3)
     result = Result.new
     result.user_id = user.id
     result.assessment_id = params[:id]
