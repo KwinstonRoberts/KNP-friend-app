@@ -6,10 +6,45 @@ class ProfileController < ApplicationController
       @traitify = Traitify.new
       @assessment = @traitify.find_results(@user.result.assessment_id)
       @traits = @user.result.traits.first
-      @matches = User.all()
+      @matches = get_matches
       @activities = Activity.all()
+      @user = User.find(session[:user_id])
     else
       redirect_to test_index_path
     end
+  end
+  def get_deck(res)
+    res.result.personalities.first.name
+  end
+  def get_ptype(res)
+    res.result.personalities.first.name
+  end
+  def compare_ptype(res)
+    if get_ptype(res) ===  get_ptype(@user)
+      return true
+    else
+      res.result.personalities.each do |r|
+        if(r.name === get_ptype(@user))
+          avg = (r.score + @user.result.personalities.first.score)/2
+          if avg >= 65
+            puts avg
+            return true
+          else
+            return false
+          end
+        end
+      end
+    end
+  end
+  def get_matches
+    matches = []
+    User.includes(result: [:personalities,:traits]).all().each do |match|
+      if match.result && match.id != session[:user_id]
+        if compare_ptype(match) === true
+          matches.push(match)
+        end
+      end
+    end
+    return matches
   end
 end
