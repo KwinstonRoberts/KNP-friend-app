@@ -14,7 +14,7 @@ MakeChannel = function(ptype,user){
           $('#messages').append('<div><p><img src="' +  data['messages'][x].pImage + '" width=30>' + '<b> ' + data['messages'][x].name + ' </b>' + data['messages'][x].body + '</p></div>')
         }
       }else{
-          $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30>' + data['message'] + '</p></div>')
+          $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30><b>' + data['name'] + '</b>: ' data['message'] + '</p></div>')
         }
     },
     speak: function(data) {
