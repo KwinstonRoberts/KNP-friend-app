@@ -13,6 +13,10 @@ $dark-grey: #4e4e4e;
 section{
   margin-bottom: 8px;
 }
+
+.loginForm p{
+  margin: 0;
+}
 .chatWrap .messageArea{
   height: 100%;
 }
@@ -25,7 +29,9 @@ section{
     overflow-y: auto;
 }
 .userInput textarea{
-  width: 400px;
+  width: 500px;
+  border: 1px solid $primary-color;
+  border-radius: 8px;
 }
 
 .channelGroup{
@@ -34,7 +40,13 @@ section{
   justify-content: space-between;
   margin: 0 auto;
   button{
-    width: 120px;
+    width: 150px;
+    height: 40px;
+    background-color: white;
+    color: $primary-color;
+    border: 2px solid $primary-color;
+    font-size: 1.1em;
+    font-weight: bold;
   }
 }
 
@@ -46,13 +58,37 @@ button {
   letter-spacing: .1em;
   background-color: $primary-color;
   color: white;
-  border: none;
   font-size: .9em;
+  border: none;
 }
+button:focus {
+      outline: none;
+      background-color: $primary-color;
+      color: white;
+      box-shadow: 4px 4px 7px #b8b8b8;
+      transition: background-color 0.5s ease;
+    }
 
 button:hover{
   opacity: .7;
   box-shadow: 4px 4px 7px #b8b8b8;
   transition: .6s;
+}
+
+@media only screen and (max-width: 800px){
+  .userInput textarea{
+  width: 200px;
+  }
+  .channelGroup{
+    flex-wrap: wrap;
+    width: 90%;
+
+    button{
+      margin: 5px;
+      font-size: .7em;
+      width: 100px;
+    }
+  }
+
 }
 

@@ -71,6 +71,9 @@ $primary-color: #43edd8;
           margin: 10px;
 
         }
+         input:-webkit-autofill {
+          -webkit-box-shadow: 0 0 0 30px white inset;
+        }
 
         form input[type=submit]{
           width: 100px;
@@ -92,3 +95,29 @@ $primary-color: #43edd8;
         }
   }
 }
+
+@media only screen and (max-width: 800px){
+  .loginContainer{
+    width: 98%;
+
+    .loginForm{
+      width: 90%;
+
+    form input[type="email"],
+    form input[type="password"]{
+     width: 200px;
+    }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
