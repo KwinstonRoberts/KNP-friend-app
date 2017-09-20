@@ -27,7 +27,7 @@
 <script>
   $(document).ready(function(){
     MakeChannel('<%=@userPtype.name%>','<%=session[:user_id]%>')
-    $('#send').on('click',function(e){
+    $('.chatButton>button').on('click',function(e){
       if($('textarea').val() !== ''){
         e.preventDefault()
         App.chat.speak($('textarea').val())
