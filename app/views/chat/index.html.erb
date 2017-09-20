@@ -9,25 +9,34 @@
   </header>
   <h2>Chat</h2>
   <div class="messageArea loginForm">
-    <div id='messages'>
-
-    </div>
+    <section id='messages'></section>
     <div class="userInput">
       <textarea name='message'></textarea>
-      <button id='send'>Send</button>
     </div>
-    <% @personalities.each do |personality| %>
-      <button class='submitMessage' name='<%=personality%>'><%=personality%></button>
-    <%end%>
+    <div class="chatButton">
+      <button>Send</button>
+    </div>
+
   </div>
 </div>
-  <script>
+<div class='channelGroup'>
+  <% @personalities.each do |personality| %>
+    <button class='<%=personality%>Channel' name='<%=personality%>'><%=personality%></button>
+  <%end%>
+</div>
+<script>
   $(document).ready(function(){
     MakeChannel('<%=@userPtype.name%>','<%=session[:user_id]%>')
     $('#send').on('click',function(e){
       e.preventDefault()
       App.chat.speak($('textarea').val())
       $('textarea').val('')
+    })
+    $('textarea').keyup(function(e){
+      if(e.which === 13){
+        App.chat.speak($('textarea').val())
+        $('textarea').val('')
+      }
     })
     $('li>button').on('click',function(e){
       e.preventDefault()

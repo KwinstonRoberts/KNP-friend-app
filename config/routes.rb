@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :profile, except:[:destroy,:new,:edit]
   resources :chat
   resources :message
+  resources :activities, only: [:create]
   mount ActionCable.server => '/cable'
 
 
