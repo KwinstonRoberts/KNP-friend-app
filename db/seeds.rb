@@ -25,6 +25,8 @@ def do_assessment(user)
   traitify.update_slides(assessment.id, slides)
   r = traitify.find_results(assessment.id)
   trait = traitify.raw_personality_traits(assessment.id).first
+  User.update(user.id,{personality:r.personality_types.first.personality_type.name})
+
   result = Result.new
   result.user_id = user.id
   result.assessment_id = assessment.id
@@ -45,7 +47,6 @@ def do_assessment(user)
 end
   50.times do
     user = User.create({
-    id: user["user_id"],
     name: Faker::Name.name,
     email: Faker::Internet.email,
     password: '2222',
