@@ -37,6 +37,6 @@ class ProfileController < ApplicationController
     end
   end
   def get_matches
-    User.includes(result: [:personalities,:traits]).where('traits.name=? and personalities.first.name',@traits.name, @user.result.personalities.first).references(:personalities,:traits)
+    return User.includes(result: [:personalities,:traits]).where('traits.name=? and personalities.first.name',@traits.name, @user.result.personalities.first).references(:personalities,:traits)
   end
 end
