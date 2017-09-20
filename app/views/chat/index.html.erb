@@ -38,7 +38,7 @@
         $('textarea').val('')
       }
     })
-    $('li>button').on('click',function(e){
+    $('.channelGroup>button').on('click',function(e){
       e.preventDefault()
       MakeChannel(e.target.name,'<%=session[:user_id]%>')
       $('textarea').val('')
