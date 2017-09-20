@@ -3,9 +3,9 @@ class UsersController < ApplicationController
   def personality
     traitify = Traitify.new
     user = User.find(session[:user_id])
+    r = traitify.find_results(params[:id])
     user.update({personality:r.personality_types.first.personality_type.name})
     user.save
-    r = traitify.find_results(params[:id])
     result = Result.new
     result.user_id = user.id
     result.assessment_id = params[:id]
