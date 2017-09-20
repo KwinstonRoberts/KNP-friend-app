@@ -12,9 +12,8 @@ class RegisterController < ApplicationController
     if @user.save
       user = User.where(:email => params[:register][:email].downcase).first
       log_in user
-      else
+    else
         redirect_to :back, notice: 'couldnt log in'
-      end
     end
   end
   private
