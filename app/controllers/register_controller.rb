@@ -11,8 +11,7 @@ class RegisterController < ApplicationController
     @user = User.new(register_params)
     if @user.save
       user = User.where(:email => params[:register][:email].downcase).first
-      if user && user.authenticate(params[:register][:password])
-        log_in user
+      log_in user
       else
         redirect_to :back, notice: 'couldnt log in'
       end
