@@ -28,12 +28,14 @@
   $(document).ready(function(){
     MakeChannel('<%=@userPtype.name%>','<%=session[:user_id]%>')
     $('#send').on('click',function(e){
-      e.preventDefault()
-      App.chat.speak($('textarea').val())
-      $('textarea').val('')
+      if($('textarea').val() !== ''){
+        e.preventDefault()
+        App.chat.speak($('textarea').val())
+        $('textarea').val('')
+      }
     })
     $('textarea').keyup(function(e){
-      if(e.which === 13){
+      if(e.which === 13 && $('textarea').val() !== ''){
         App.chat.speak($('textarea').val())
         $('textarea').val('')
       }
