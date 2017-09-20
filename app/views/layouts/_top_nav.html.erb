@@ -4,6 +4,7 @@
 
   <div class="links">
   <% if session[:user_id] %>
+  <%= link_to 'Chat', chat_index_path %>
   <%= link_to 'Profile', profile_index_path%>
   <%= link_to 'Logout', login_path(session[:user_id]), method: :delete %>
   <%else%>
@@ -11,5 +12,3 @@
   <%end%>
   </div>
 </nav>
-
-

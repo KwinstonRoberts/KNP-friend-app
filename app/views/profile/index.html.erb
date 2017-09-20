@@ -12,7 +12,7 @@
        <h3><%= @user.result.personalities.first.name %></h3>
        <h4><%= @user.result.personalities.first.score.ceil %></h4>
        <h4><%= @assessment.personality_types.first.personality_type.description %></h4>
-       <h4> Famous person with the same trait: <%=@assessment.personality_types.first.personality_type.famous_people.first.name%> </h4>
+       <h4> <b>Famous person with the same trait: </b><%=@assessment.personality_types.first.personality_type.famous_people.first.name%> </h4>
        <h2> Personality Trait </h2>
        <h3> <%= @traits.name %> </h3>
     </div>
@@ -46,25 +46,27 @@
       <h2> Matches </h2>
     </div>
           <% if @matches.nil? === false %>
-          <% @matches.each do |match|  %>
-            <div class="matchesInner">
-              <h3 class="matchName"><%= match.name %></h3>
-              <% result = Result.find_by(user_id:match.id)%>
-              <h4><%= result.personalities.first.name %></h4>
-              <img src='<%=result.image%>'>
-              <h3>Personality Trait<h3>
-              <h4><%= result.traits.first.name %></h4>
-                 <div class="activityList">
-                   <div class="text">
-                    <h3> Activities </h3>
-                    <% match.activities.each do |a| %>
-                      <p><%= a.name %></p>
-                    <%end%>
-                    <img src='<%=result.image%>'>
-                    <p class="message"><%=link_to 'Message ' + match.name, chat_path(match.id) %> </p>
-                  </div>
+            <% @matches.each do |match|  %>
+              <% if match.name != @user.name %>
+                <div class="matchesInner">
+                  <h3 class="matchName"><%= match.name %></h3>
+                  <% result = Result.find_by(user_id:match.id)%>
+                  <h4><%= result.personalities.first.name %></h4>
+                  <img src='<%=result.image%>'>
+                  <h3>Personality Trait<h3>
+                  <h4><%= result.traits.first.name %></h4>
+                  <div class="activityList">
+                    <div class="text">
+                      <h3> Activities </h3>
+                      <% match.activities.each do |a| %>
+                        <p><%= a.name %></p>
+                      <%end%>
+                      <img src='<%=result.image%>'>
+                      <p class="message"><%=link_to 'Message ' + match.name, chat_path(match.id) %> </p>
+                    </div>
                  </div>
-            </div>
+              </div>
+            <%end%>
           <%end%>
         <%end%>
     </div>
