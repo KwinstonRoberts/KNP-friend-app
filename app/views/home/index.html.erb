@@ -24,7 +24,7 @@
     <div class="register">
         <h2>Register</h2>
 
-      <%= form_for :register, url: register_index_path do |f| %>
+      <%= form_for :register, url: register_index_path, method: :post do |f| %>
 
       <div class="field">
         <%= f.label :name %><br />
@@ -42,7 +42,7 @@
         <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
       </div>
 
-      <%= f.submit "Register", method: :post %>
+      <%= f.submit "Register"%>
 
     <% end %>
   </div>
