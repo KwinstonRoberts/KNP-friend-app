@@ -10,6 +10,7 @@ $thoughtful: #9788f2;
 
 .profileWrapper{
   margin-top: 50px;
+  max-width: 1500px;
   h1{
     color: #4e4e4e;
   }
@@ -125,12 +126,20 @@ $thoughtful: #9788f2;
     }
   }
 }
+.message a {
+  text-decoration: none;
+}
+
+
 /******************************
 STYLES FOR COLOR CHANGES
 *******************************/
 
 .mellowType{
-  h1, h2, .message{
+  h1, h2 {
+    color: $mellow;
+  }
+  .message a {
     color: $mellow;
   }
   .checkbox_box {
@@ -155,7 +164,10 @@ STYLES FOR COLOR CHANGES
 }
 
 .thoughtfulType{
-  h1, h2, .message{
+  h1, h2 {
+    color: $thoughtful;
+  }
+  .message a {
     color: $thoughtful;
   }
   .checkbox_box {
@@ -180,7 +192,10 @@ STYLES FOR COLOR CHANGES
 }
 
 .adventureType{
-  h1, h2, .message{
+  h1, h2{
+    color: $adventure;
+  }
+  .message a {
     color: $adventure;
   }
   .checkbox_box {
@@ -205,7 +220,10 @@ STYLES FOR COLOR CHANGES
 }
 
 .charismaticType{
-  h1, h2, .message{
+  h1, h2{
+    color: $charismatic;
+  }
+  .message a {
     color: $charismatic;
   }
   .checkbox_box {
@@ -229,7 +247,10 @@ STYLES FOR COLOR CHANGES
 }
 
 .socialType{
-  h1, h2, .message{
+  h1, h2 {
+    color: $social;
+  }
+  .message a {
     color: $social;
   }
   .checkbox_box {
@@ -253,7 +274,10 @@ STYLES FOR COLOR CHANGES
 }
 
 .reliableType{
-  h1, h2, .message{
+  h1, h2{
+    color: $reliable;
+  }
+  .message a {
     color: $reliable;
   }
  .checkbox_box {
@@ -277,7 +301,10 @@ STYLES FOR COLOR CHANGES
 }
 
 .rationalType{
-  h1, h2, .message{
+  h1, h2{
+    color: $rational;
+  }
+  .message a {
     color: $rational;
   }
   .checkbox_box {

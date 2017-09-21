@@ -29,12 +29,6 @@ ActiveRecord::Schema.define(version: 20170920003319) do
     t.integer "activity_id", null: false
   end
 
-  create_table "matches", force: :cascade do |t|
-    t.string   "match_name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "messages", force: :cascade do |t|
     t.string   "body"
     t.integer  "user_id"
@@ -53,12 +47,6 @@ ActiveRecord::Schema.define(version: 20170920003319) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["result_id"], name: "index_personalities_on_result_id", using: :btree
-  end
-
-  create_table "personality_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "results", force: :cascade do |t|
@@ -80,12 +68,12 @@ ActiveRecord::Schema.define(version: 20170920003319) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "name"
     t.string   "email"
     t.string   "password_digest"
     t.string   "personality"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "name"
   end
 
   add_foreign_key "activities", "users", column: "users_id"
