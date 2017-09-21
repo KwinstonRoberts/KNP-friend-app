@@ -10,11 +10,10 @@ MakeChannel = function(ptype,user){
     received: function(data) {
       if(data['messages']) {
         for(x in data['messages']){
-          console.log(x)
-          $('#messages').append('<div><p><img src="' +  data['messages'][x].pImage + '" width=30>' + '<b> ' + data['messages'][x].name + ' </b>' + data['messages'][x].body.replace(/<\/+script>/gi,'') + '</p></div>')
+          $('#messages').append('<div><p><img src="' +  data['messages'][x].pImage + '" width=30>' + '<b> ' + data['messages'][x].name + ' </b>' + data['messages'][x].body.replace(/<\/+script>/g,'') + '</p></div>')
         }
       }else{
-          $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30><b>' + data['name'] + '</b>: ' + data['message'] + '</p></div>')
+          $('#messages').append('<div><p><img src="' + data['ptype'] + '" width=30><b>' + data['name'] + '</b>: ' + data['message'].replace(/<\/+script>/g,'') + '</p></div>')
         }
     },
     speak: function(data) {
