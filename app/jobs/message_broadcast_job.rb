@@ -3,9 +3,9 @@ class MessageBroadcastJob < ApplicationJob
 
   def perform(message)
     ActionCable.server.broadcast 'chat_channel_' + message.channel,
-      message: message.body,
-      user: message.user_id,
+      message: sanitize(message.body),
+      user: sanitize(message.user_id),
       ptype: User.find(message.user_id).result.image,
-      name:  User.find(message.user_id).name
+      name:  sanitize(User.find(message.user_id).name)
   end
 end

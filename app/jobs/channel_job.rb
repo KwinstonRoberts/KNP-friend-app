@@ -3,7 +3,7 @@ class ChannelJob < ApplicationJob
 
   def perform(ptype,user)
     ActionCable.server.broadcast user,{
-      messages: Message.where(channel:ptype),
+      messages: sanitize(Message.where(channel:ptype)),
     }
   end
 end
